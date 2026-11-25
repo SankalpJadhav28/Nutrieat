@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menu & Macro Builder — Nutrieat</title>
+  <link rel="icon" href="assets/logo1.png" type="image/png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Patrick+Hand&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            linen: '#F5F1E8',
+            parchment: '#EDE5D5',
+            kraft: '#D5BFA3',
+            sand: '#E4D5BE',
+            sage: '#C8D6BA',
+            leaf: '#3A6118',
+            cocoa: '#4D3520',
+            espresso: '#241B12',
+            promoRed: '#C8281E'
+          },
+          fontFamily: {
+            display: ['Fredoka', 'sans-serif'],
+            sans: ['Quicksand', 'sans-serif'],
+            script: ['Patrick Hand', 'cursive'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { background-color: #F5F1E8; color: #4D3520; overflow-x: hidden; }
+    .linen-texture {
+      background-image: radial-gradient(rgba(77, 53, 32, 0.045) 1px, transparent 0),
+                        radial-gradient(rgba(58, 97, 24, 0.03) 1px, #F5F1E8 0);
+      background-size: 24px 24px;
+      background-position: 0 0, 12px 12px;
+    }
+    .magnetic-btn { transition: transform 0.25s cubic-bezier(0.23, 1, 0.32, 1), background-color 0.25s ease; }
+    .dish-img { transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1); }
+    .menu-card:hover .dish-img { transform: scale(1.06) rotate(2deg); }
+  </style>
+</head>
+<body class="font-sans linen-texture antialiased selection:bg-sage selection:text-espresso">
+
+  <!-- NAVBAR -->
+  <header class="fixed top-0 left-0 right-0 z-50 px-3 sm:px-6 py-3 sm:py-4">
+    <div class="max-w-6xl mx-auto bg-linen/90 backdrop-blur-md border border-cocoa/15 rounded-full px-3.5 sm:px-7 py-2 sm:py-2.5 flex items-center justify-between gap-2 shadow-sm">
+      <a href="index.html" class="flex items-center gap-2 sm:gap-2.5 group min-w-0">
+        <img src="assets/logo1.png" alt="Nutrieat Logo" class="h-8 sm:h-10 w-auto object-contain shrink-0 transition-transform duration-300 group-hover:rotate-6" />
+        <div class="leading-none truncate">
+          <span class="font-display font-bold text-lg sm:text-xl tracking-tight text-leaf block">Nutrieat</span>
+          <span class="hidden sm:block text-[9px] font-bold tracking-[0.18em] text-cocoa uppercase mt-0.5">Eat Good. Feel Good.</span>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8 text-sm font-bold text-cocoa/85">
+        <a href="index.html" class="hover:text-leaf transition-colors">Home</a>
+        <a href="menu.html" class="text-leaf underline decoration-2 underline-offset-4">Menu & Builder</a>
+        <a href="story.html" class="hover:text-leaf transition-colors">Our Story & Stall</a>
+      </nav>
+
+      <a href="https://instagram.com/nutrieatofficial" target="_blank" class="magnetic-btn shrink-0 bg-sage text-espresso text-[10px] sm:text-xs font-bold uppercase tracking-wider px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full border border-leaf/20 hover:bg-leaf hover:text-linen">
+        <span class="sm:hidden">Instagram ↗</span>
+        <span class="hidden sm:inline">@nutrieatofficial</span>
+      </a>
+    </div>
+
+    <nav class="md:hidden max-w-xs mx-auto mt-2 bg-linen/95 backdrop-blur-md border border-cocoa/15 rounded-full px-4 py-1.5 flex items-center justify-around text-xs font-bold text-cocoa shadow-sm">
+      <a href="index.html" class="hover:text-leaf px-2 py-0.5">Home</a>
+      <span class="text-cocoa/25">•</span>
+      <a href="menu.html" class="text-leaf px-2 py-0.5">Menu & Builder</a>
+      <span class="text-cocoa/25">•</span>
+      <a href="story.html" class="hover:text-leaf px-2 py-0.5">Our Story</a>
+    </nav>
+  </header>
+
+  <!-- MENU HEADER & GRID -->
+  <main class="pt-36 sm:pt-32 pb-20 px-6 max-w-6xl mx-auto">
+    <div class="text-center max-w-2xl mx-auto mb-14 page-enter">
+      <div class="inline-flex items-center gap-2 bg-sage/50 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest text-leaf mb-3">
+        Freshly Prepped Daily
+      </div>
+      <h1 class="font-display font-bold text-4xl sm:text-6xl text-cocoa tracking-tight mb-3">OUR MENU & MACROS</h1>
+      <p class="text-cocoa/85 font-semibold text-base">
+        Chocolate or classic—bowls, sandwiches, and high-protein shakes with transparent calories, protein, and fats.
+      </p>
+    </div>
+
+    <!-- 5-Card Menu Grid -->
+    <div class="grid md:grid-cols-2 gap-8 mb-24">
+      
+      <!-- 1. CLASSIC HONEY & NUT OATS (NON-CHOCOLATE) -->
+      <div class="menu-card bg-linen border-2 border-cocoa/15 rounded-[2rem] p-7 shadow-sm flex flex-col justify-between hover:border-leaf/50 transition-colors">
+        <div>
+          <div class="flex items-center justify-between gap-4 mb-2">
+            <h2 class="font-display font-bold text-2xl text-cocoa tracking-tight">CLASSIC HONEY & NUT OATS</h2>
+            <span class="bg-sage text-espresso font-display font-bold text-xl px-5 py-1 rounded-full shrink-0">₹80</span>
+          </div>
+          <p class="text-cocoa/85 font-semibold text-sm mb-4">Zero chocolate—creamy rolled oats topped with fresh banana slices, crunchy almonds, and pure honey.</p>
+        </div>
+        <div class="relative pt-2">
+          <div class="flex justify-end mb-2">
+            <span class="bg-sand text-cocoa font-bold text-xs px-4 py-1.5 rounded-2xl text-center leading-tight shadow-sm">300 kcal<br>9g P | 6g F</span>
+          </div>
+          <div class="aspect-[16/11] rounded-2xl overflow-hidden flex items-center justify-center">
+            <img src="https://images.unsplash.com/photo-1517673132405-a56a62b18caf?auto=format&fit=crop&w=800&q=80" alt="Classic Honey & Nut Oats" class="dish-img w-full h-full object-contain rounded-2xl drop-shadow-md">
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. CHOCO PEANUT OATS BOWL -->
+      <div class="menu-card bg-linen border-2 border-cocoa/15 rounded-[2rem] p-7 shadow-sm flex flex-col justify-between hover:border-leaf/50 transition-colors">
+        <div>
+          <div class="flex items-center justify-between gap-4 mb-2">
+            <h2 class="font-display font-bold text-2xl text-cocoa tracking-tight">CHOCO PEANUT OATS BOWL</h2>
+            <span class="bg-sage text-espresso font-display font-bold text-xl px-5 py-1 rounded-full shrink-0">₹80</span>
+          </div>
+          <p class="text-cocoa/85 font-semibold text-sm mb-4">Rich dark chocolate drizzle over creamy oats, sliced bananas, and roasted peanut butter.</p>
+        </div>
+        <div class="relative pt-2">
+          <div class="flex justify-end mb-2">
+            <span class="bg-sand text-cocoa font-bold text-xs px-4 py-1.5 rounded-2xl text-center leading-tight shadow-sm">310 kcal<br>9g P | 7g F</span>
+          </div>
+          <div class="aspect-[16/11] rounded-2xl overflow-hidden flex items-center justify-center">
+            <img src="assets/basic_oats.png" alt="Choco Peanut Oats Bowl" class="dish-img w-full h-full object-contain drop-shadow-md">
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. HIGH PROTEIN OATS BOWL -->
+      <div class="menu-card bg-linen border-2 border-leaf/35 rounded-[2rem] p-7 shadow-sm flex flex-col justify-between relative">
+        <div class="absolute -top-3 left-7 bg-leaf text-linen text-[11px] font-bold uppercase tracking-wider px-3.5 py-0.5 rounded-full">Bestseller</div>
+        <div>
+          <div class="flex items-center justify-between gap-4 mb-2">
+            <h2 class="font-display font-bold text-2xl text-cocoa tracking-tight">HIGH PROTEIN OATS BOWL</h2>
+            <span class="bg-sage text-espresso font-display font-bold text-xl px-5 py-1 rounded-full shrink-0">₹100</span>
+          </div>
+          <p class="text-cocoa/85 font-semibold text-sm mb-4">Power-packed breakfast loaded with protein oats, nuts, fruits, and peanut butter.</p>
+        </div>
+        <div class="relative pt-2">
+          <div class="flex justify-end mb-2">
+            <span class="bg-sand text-cocoa font-bold text-xs px-4 py-1.5 rounded-2xl text-center leading-tight shadow-sm">420 kcal<br>21g P | 9g F</span>
+          </div>
+          <div class="aspect-[16/11] rounded-2xl overflow-hidden flex items-center justify-center">
+            <img src="assets/high_protein.png" alt="High Protein Oats Bowl" class="dish-img w-full h-full object-contain drop-shadow-md">
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. WHEY PROTEIN SMOOTHIE -->
+      <div class="menu-card bg-linen border-2 border-leaf/35 rounded-[2rem] p-7 shadow-sm flex flex-col justify-between relative hover:border-leaf/50 transition-colors">
+        <div class="absolute -top-3 left-7 bg-kraft text-espresso text-[11px] font-bold uppercase tracking-wider px-3.5 py-0.5 rounded-full">New Drop</div>
+        <div>
+          <div class="flex items-center justify-between gap-4 mb-2">
+            <h2 class="font-display font-bold text-2xl text-cocoa tracking-tight">WHEY PROTEIN SMOOTHIE</h2>
+            <span class="bg-sage text-espresso font-display font-bold text-xl px-5 py-1 rounded-full shrink-0">₹110</span>
+          </div>
+          <p class="text-cocoa/85 font-semibold text-sm mb-4">Thick, chilled post-workout shake blended with a full scoop of whey, banana, and peanut butter.</p>
+        </div>
+        <div class="relative pt-2">
+          <div class="flex justify-end mb-2">
+            <span class="bg-sand text-cocoa font-bold text-xs px-4 py-1.5 rounded-2xl text-center leading-tight shadow-sm">340 kcal<br>26g P | 5g F</span>
+          </div>
+          <div class="aspect-[16/11] rounded-2xl overflow-hidden flex items-center justify-center">
+            <img src="https://images.unsplash.com/photo-1553530666-ba11a7da3888?auto=format&fit=crop&w=800&q=80" alt="Whey Protein Smoothie" class="dish-img w-full h-full object-contain rounded-2xl drop-shadow-md">
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. PEANUT BUTTER SANDWICH -->
+      <div class="menu-card md:col-span-2 md:max-w-xl md:mx-auto w-full bg-linen border-2 border-cocoa/15 rounded-[2rem] p-7 shadow-sm flex flex-col justify-between hover:border-leaf/50 transition-colors">
+        <div>
+          <div class="flex items-center justify-between gap-4 mb-2">
+            <h2 class="font-display font-bold text-2xl text-cocoa tracking-tight">PEANUT BUTTER SANDWICH</h2>
+            <span class="bg-sage text-espresso font-display font-bold text-xl px-5 py-1 rounded-full shrink-0">₹70</span>
+          </div>
+          <p class="text-cocoa/85 font-semibold text-sm mb-4">Energy-packed bite with toasted multigrain bread, creamy peanut butter, and bananas.</p>
+        </div>
+        <div class="relative pt-2">
+          <div class="flex justify-end mb-2">
+            <span class="bg-sand text-cocoa font-bold text-xs px-4 py-1.5 rounded-2xl text-center leading-tight shadow-sm">380 kcal<br>12g P | 6g F</span>
+          </div>
+          <div class="aspect-[16/11] rounded-2xl overflow-hidden flex items-center justify-center">
+            <img src="assets/peanut_butter.png" alt="Peanut Butter Sandwich" class="dish-img w-full h-full object-contain drop-shadow-md">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FEATURE 1: INTERACTIVE MACRO & PRICE CALCULATOR -->
+    <section id="calculator" class="bg-parchment/90 border-2 border-cocoa/15 rounded-[2.5rem] p-7 sm:p-12 shadow-sm">
+      <div class="text-center max-w-xl mx-auto mb-10">
+        <span class="inline-block bg-sage px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest text-espresso mb-2">Custom Fuel Builder</span>
+        <h2 class="font-display font-bold text-3xl sm:text-4xl text-cocoa">BUILD YOUR BOWL OR SHAKE</h2>
+        <p class="text-cocoa/80 text-sm sm:text-base font-semibold mt-1">Pick a base, stack your toppings, and see exact macros + price live.</p>
+      </div>
+
+      <div class="grid lg:grid-cols-12 gap-8 items-start">
+        <div class="lg:col-span-7 space-y-6">
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-cocoa/80 mb-3">1. Choose Your Base</label>
+            <div class="grid sm:grid-cols-2 gap-2.5">
+              <button type="button" data-name="Classic Honey & Nut Oats" data-price="80" data-kcal="300" data-p="9" data-f="6" class="base-btn text-left p-3.5 rounded-2xl border-2 border-leaf bg-sage/40 transition-all">
+                <div class="font-display font-bold text-sm text-cocoa">Classic Honey Oats</div>
+                <div class="text-xs font-bold text-leaf">₹80 • 9g Protein</div>
+              </button>
+              <button type="button" data-name="Choco Peanut Oats" data-price="80" data-kcal="310" data-p="9" data-f="7" class="base-btn text-left p-3.5 rounded-2xl border-2 border-cocoa/15 bg-linen hover:border-leaf/50 transition-all">
+                <div class="font-display font-bold text-sm text-cocoa">Choco Peanut Oats</div>
+                <div class="text-xs font-bold text-cocoa/70">₹80 • 9g Protein</div>
+              </button>
+              <button type="button" data-name="High Protein Oats Bowl" data-price="100" data-kcal="420" data-p="21" data-f="9" class="base-btn text-left p-3.5 rounded-2xl border-2 border-cocoa/15 bg-linen hover:border-leaf/50 transition-all">
+                <div class="font-display font-bold text-sm text-cocoa">High Protein Oats</div>
+                <div class="text-xs font-bold text-cocoa/70">₹100 • 21g Protein</div>
+              </button>
+              <button type="button" data-name="Whey Protein Smoothie" data-price="110" data-kcal="340" data-p="26" data-f="5" class="base-btn text-left p-3.5 rounded-2xl border-2 border-cocoa/15 bg-linen hover:border-leaf/50 transition-all">
+                <div class="font-display font-bold text-sm text-cocoa">Whey Smoothie</div>
+                <div class="text-xs font-bold text-cocoa/70">₹110 • 26g Protein</div>
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-cocoa/80 mb-3">2. Boost Your Macros (Optional)</label>
+            <div class="grid sm:grid-cols-2 gap-2.5">
+              <button type="button" data-name="Extra Whey Scoop" data-price="40" data-kcal="120" data-p="24" data-f="1" class="addon-btn flex items-center justify-between p-3.5 rounded-2xl border-2 border-cocoa/15 bg-linen hover:border-leaf/50 transition-all text-left">
+                <div>
+                  <div class="font-bold text-sm text-cocoa">+1 Scoop Whey</div>
+                  <div class="text-[11px] font-bold text-leaf">+24g P • +120 kcal</div>
+                </div>
+                <span class="font-display font-bold text-sm bg-sand px-2.5 py-1 rounded-full">+₹40</span>
+              </button>
+              <button type="button" data-name="Extra Peanut Butter" data-price="15" data-kcal="95" data-p="4" data-f="8" class="addon-btn flex items-center justify-between p-3.5 rounded-2xl border-2 border-cocoa/15 bg-linen hover:border-leaf/50 transition-all text-left">
+                <div>
+                  <div class="font-bold text-sm text-cocoa">Extra Peanut Butter</div>
+                  <div class="text-[11px] font-bold text-leaf">+4g P • +95 kcal</div>
+                </div>
+                <span class="font-display font-bold text-sm bg-sand px-2.5 py-1 rounded-full">+₹15</span>
+              </button>
+              <button type="button" data-name="Almonds & Cashews" data-price="20" data-kcal="85" data-p="3" data-f="7" class="addon-btn flex items-center justify-between p-3.5 rounded-2xl border-2 border-cocoa/15 bg-linen hover:border-leaf/50 transition-all text-left">
+                <div>
+                  <div class="font-bold text-sm text-cocoa">Almonds & Cashews</div>
+                  <div class="text-[11px] font-bold text-leaf">+3g P • +85 kcal</div>
+                </div>
+                <span class="font-display font-bold text-sm bg-sand px-2.5 py-1 rounded-full">+₹20</span>
+              </button>
+              <button type="button" data-name="Chia & Pumpkin Seeds" data-price="15" data-kcal="65" data-p="3" data-f="4" class="addon-btn flex items-center justify-between p-3.5 rounded-2xl border-2 border-cocoa/15 bg-linen hover:border-leaf/50 transition-all text-left">
+                <div>
+                  <div class="font-bold text-sm text-cocoa">Chia & Pumpkin Seeds</div>
+                  <div class="text-[11px] font-bold text-leaf">+3g P • +65 kcal</div>
+                </div>
+                <span class="font-display font-bold text-sm bg-sand px-2.5 py-1 rounded-full">+₹15</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 bg-linen border-2 border-leaf/30 rounded-3xl p-6 sm:p-7 shadow-md">
+          <div class="flex items-center justify-between border-b border-cocoa/10 pb-4 mb-5">
+            <div>
+              <span class="text-[11px] font-bold uppercase tracking-widest text-leaf">Your Custom Order</span>
+              <h3 id="calc-title" class="font-display font-bold text-xl text-cocoa leading-snug">Classic Honey & Nut Oats</h3>
+            </div>
+            <div class="bg-sage text-espresso font-display font-bold text-2xl px-4 py-1.5 rounded-full shrink-0">
+              ₹<span id="calc-price">80</span>
+            </div>
+          </div>
+
+          <p id="calc-addons-list" class="text-xs font-semibold text-cocoa/75 mb-5 min-h-[1.25rem]">No extra toppings selected</p>
+
+          <div class="grid grid-cols-3 gap-2.5 text-center mb-6">
+            <div class="bg-sand/70 p-3 rounded-2xl">
+              <div class="font-display font-bold text-xl text-cocoa"><span id="calc-kcal">300</span></div>
+              <div class="text-[11px] font-bold uppercase text-cocoa/75">Calories</div>
+            </div>
+            <div class="bg-sage/70 p-3 rounded-2xl border border-leaf/20">
+              <div class="font-display font-bold text-xl text-leaf"><span id="calc-protein">9</span>g</div>
+              <div class="text-[11px] font-bold uppercase text-espresso">Protein</div>
+            </div>
+            <div class="bg-sand/70 p-3 rounded-2xl">
+              <div class="font-display font-bold text-xl text-cocoa"><span id="calc-fats">6</span>g</div>
+              <div class="text-[11px] font-bold uppercase text-cocoa/75">Fats</div>
+            </div>
+          </div>
+
+         <!-- Pickup Time & WhatsApp Pre-Order -->
+          <div class="space-y-3">
+            <div class="flex items-center justify-between bg-parchment px-3.5 py-2 rounded-2xl border border-cocoa/10">
+              <label for="pickup-time" class="text-xs font-bold text-cocoa/80">Pickup in:</label>
+              <select id="pickup-time" class="bg-transparent text-xs font-bold text-leaf focus:outline-none cursor-pointer">
+                <option value="10 mins">10 mins</option>
+                <option value="15 mins" selected>15 mins</option>
+                <option value="30 mins">30 mins</option>
+                <option value="At the stall now">At the stall now</option>
+              </select>
+            </div>
+
+            <a
+              id="whatsapp-order-btn"
+              href="#"
+              target="_blank"
+              class="magnetic-btn w-full flex items-center justify-center gap-2 bg-leaf text-linen font-display font-bold text-base py-3.5 px-6 rounded-full hover:bg-espresso shadow-md"
+            >
+              <span>Pre-Order on WhatsApp</span>
+              <span>↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-espresso text-linen py-10 px-6">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-semibold text-linen/70">
+      <div>© 2026 NUTRIEAT • EAT GOOD. FEEL GOOD.</div>
+      <div class="flex gap-6">
+        <a href="index.html" class="hover:text-kraft">Home</a>
+        <a href="menu.html" class="hover:text-kraft">Menu</a>
+        <a href="story.html" class="hover:text-kraft">Our Story</a>
+      </div>
+    </div>
+  </footer>
+
+ <script>
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.from(".page-enter", { y: 25, opacity: 0, duration: 0.65, ease: "power3.out" });
+    gsap.from(".menu-card", { y: 35, opacity: 0, duration: 0.6, stagger: 0.12, ease: "power3.out" });
+
+    // REPLACE WITH YOUR STALL WHATSAPP NUMBER (91 + 10-digit mobile number)
+    const STALL_WHATSAPP = "917208258069";
+
+    const baseBtns = document.querySelectorAll('.base-btn');
+    const addonBtns = document.querySelectorAll('.addon-btn');
+    const pickupSelect = document.getElementById('pickup-time');
+    const waOrderBtn = document.getElementById('whatsapp-order-btn');
+
+    let selectedBase = { name: 'Classic Honey & Nut Oats', price: 80, kcal: 300, p: 9, f: 6 };
+    let selectedAddons = new Map();
+
+    function buildWhatsAppUrl(itemName, addonsArray, totalPrice, totalP, pickup) {
+      const addonsText = addonsArray.length > 0 ? `\n• Add-ons: ${addonsArray.join(', ')}` : '';
+      const message =
+        `Hey Nutrieat! 👋 I'd like to pre-order:\n\n` +
+        `• Item: *${itemName}*${addonsText}\n` +
+        `• Macros: ${totalP}g Protein\n` +
+        `• Total: *₹${totalPrice}*\n` +
+        `• Pickup: ${pickup}\n\n` +
+        `Picking up at Tilak Nagar stall!`;
+      return `https://wa.me/${STALL_WHATSAPP}?text=${encodeURIComponent(message)}`;
+    }
+
+    function updateCalculator() {
+      let totalPrice = selectedBase.price, totalKcal = selectedBase.kcal, totalP = selectedBase.p, totalF = selectedBase.f;
+      selectedAddons.forEach(item => { totalPrice += item.price; totalKcal += item.kcal; totalP += item.p; totalF += item.f; });
+
+      document.getElementById('calc-title').textContent = selectedBase.name;
+      document.getElementById('calc-price').textContent = totalPrice;
+      document.getElementById('calc-kcal').textContent = totalKcal;
+      document.getElementById('calc-protein').textContent = totalP;
+      document.getElementById('calc-fats').textContent = totalF;
+
+      const addonsArray = Array.from(selectedAddons.keys());
+      const addonsListEl = document.getElementById('calc-addons-list');
+      addonsListEl.textContent = addonsArray.length === 0 ? 'No extra toppings selected' : '+ ' + addonsArray.join(', ');
+
+      // Update live WhatsApp Pre-Order URL
+      waOrderBtn.href = buildWhatsAppUrl(selectedBase.name, addonsArray, totalPrice, totalP, pickupSelect.value);
+
+      gsap.fromTo('#calc-price, #calc-protein', { scale: 1.15 }, { scale: 1, duration: 0.25, ease: 'back.out(2)' });
+    }
+
+    baseBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        baseBtns.forEach(b => { b.classList.remove('border-leaf', 'bg-sage/40'); b.classList.add('border-cocoa/15', 'bg-linen'); });
+        btn.classList.remove('border-cocoa/15', 'bg-linen');
+        btn.classList.add('border-leaf', 'bg-sage/40');
+        selectedBase = { name: btn.dataset.name, price: +btn.dataset.price, kcal: +btn.dataset.kcal, p: +btn.dataset.p, f: +btn.dataset.f };
+        updateCalculator();
+      });
+    });
+
+    addonBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const name = btn.dataset.name;
+        if (selectedAddons.has(name)) {
+          selectedAddons.delete(name);
+          btn.classList.remove('border-leaf', 'bg-sage/40');
+          btn.classList.add('border-cocoa/15', 'bg-linen');
+        } else {
+          selectedAddons.set(name, { price: +btn.dataset.price, kcal: +btn.dataset.kcal, p: +btn.dataset.p, f: +btn.dataset.f });
+          btn.classList.remove('border-cocoa/15', 'bg-linen');
+          btn.classList.add('border-leaf', 'bg-sage/40');
+        }
+        updateCalculator();
+      });
+    });
+
+    pickupSelect.addEventListener('change', updateCalculator);
+
+    // Initialize default WhatsApp link on page load
+    updateCalculator();
+  </script>
+</body>
+</html>

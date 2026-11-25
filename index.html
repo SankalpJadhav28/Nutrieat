@@ -3,18 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Fresh, nutritious, delicious oats bowls, whey protein smoothies, and peanut butter sandwiches starting at ₹70. Tilak Nagar, Sahyadri Ground, Mumbai." />
+  <meta property="og:title" content="Nutrieat — Eat Good. Feel Good." />
+  <meta property="og:description" content="Wholesome oats bowls & whey protein smoothies by friends in our 20s. Visit us at Sahyadri Ground, Tilak Nagar (7 AM – 11 AM)." />
+  <meta property="og:image" content="assets/logo1.png" />
+  <meta property="og:type" content="website" />
   <title>Nutrieat — Eat Good. Feel Good.</title>
   <link rel="icon" href="assets/logo1.png" type="image/png" />
-  
-  <!-- Google Fonts matching the Standee & Menu vibe: Fredoka (Rounded Display), Quicksand (Clean Friendly Body), Patrick Hand (Standee Script) -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Patrick+Hand&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
-  
-  <!-- Tailwind CSS -->
+
   <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- GSAP & ScrollTrigger -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
@@ -23,15 +24,15 @@
       theme: {
         extend: {
           colors: {
-            linen: '#F5F1E8',       // Menu card soft cream background
-            parchment: '#EDE5D5',   // Standee light textured cream
-            kraft: '#D5BFA3',       // Standee warm pastel tan
-            sand: '#E4D5BE',        // Menu macro badge pill color
-            sage: '#C8D6BA',        // Menu price tag pastel green
-            leaf: '#3A6118',        // Nutrieat brand logo green
-            cocoa: '#4D3520',       // Standee headline & body brown
-            espresso: '#241B12',    // Bottom location bar dark brown
-            promoRed: '#C8281E'     // Standee "FREE!" sticker red
+            linen: '#F5F1E8',
+            parchment: '#EDE5D5',
+            kraft: '#D5BFA3',
+            sand: '#E4D5BE',
+            sage: '#C8D6BA',
+            leaf: '#3A6118',
+            cocoa: '#4D3520',
+            espresso: '#241B12',
+            promoRed: '#C8281E'
           },
           fontFamily: {
             display: ['Fredoka', 'sans-serif'],
@@ -44,49 +45,22 @@
   </script>
 
   <style>
-    body {
-      background-color: #F5F1E8;
-      color: #4D3520;
-      overflow-x: hidden;
-    }
-
-    /* Subtle Linen Paper Texture matching the printed Menu & Standee */
+    body { background-color: #F5F1E8; color: #4D3520; overflow-x: hidden; }
     .linen-texture {
       background-image: radial-gradient(rgba(77, 53, 32, 0.045) 1px, transparent 0),
                         radial-gradient(rgba(58, 97, 24, 0.03) 1px, #F5F1E8 0);
       background-size: 24px 24px;
       background-position: 0 0, 12px 12px;
     }
-
-    /* Infinite Marquee */
-    .marquee-track {
-      display: flex;
-      width: max-content;
-      animation: marquee 26s linear infinite;
-    }
-    .marquee-track:hover {
-      animation-play-state: paused;
-    }
-    @keyframes marquee {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-
-    /* Magnetic & Card Hover Transitions */
-    .magnetic-btn {
-      transition: transform 0.25s cubic-bezier(0.23, 1, 0.32, 1), background-color 0.25s ease;
-    }
-    .dish-img {
-      transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .menu-card:hover .dish-img {
-      transform: scale(1.06) rotate(2deg);
-    }
+    .marquee-track { display: flex; width: max-content; animation: marquee 26s linear infinite; }
+    .marquee-track:hover { animation-play-state: paused; }
+    @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    .magnetic-btn { transition: transform 0.25s cubic-bezier(0.23, 1, 0.32, 1), background-color 0.25s ease; }
   </style>
 </head>
 <body class="font-sans linen-texture antialiased selection:bg-sage selection:text-espresso">
 
-  <!-- PRELOADER (Video Intro) -->
+  <!-- VIDEO INTRO PRELOADER (Plays on first load of session) -->
   <div id="preloader" class="fixed inset-0 z-[9999] bg-linen flex items-center justify-center overflow-hidden">
     <video
       id="intro-video"
@@ -107,12 +81,10 @@
     </button>
   </div>
 
-  <!-- NAVBAR -->
-  <header class="fixed top-0 left-0 right-0 z-50 px-3 sm:px-6 py-3 sm:py-4" id="navbar">
+  <!-- SHARED NAVBAR -->
+  <header class="fixed top-0 left-0 right-0 z-50 px-3 sm:px-6 py-3 sm:py-4">
     <div class="max-w-6xl mx-auto bg-linen/90 backdrop-blur-md border border-cocoa/15 rounded-full px-3.5 sm:px-7 py-2 sm:py-2.5 flex items-center justify-between gap-2 shadow-sm">
-      
-      <!-- Brand Logo -->
-      <a href="#" class="flex items-center gap-2 sm:gap-2.5 group min-w-0">
+      <a href="index.html" class="flex items-center gap-2 sm:gap-2.5 group min-w-0">
         <img src="assets/logo1.png" alt="Nutrieat Logo" class="h-8 sm:h-10 w-auto object-contain shrink-0 transition-transform duration-300 group-hover:rotate-6" />
         <div class="leading-none truncate">
           <span class="font-display font-bold text-lg sm:text-xl tracking-tight text-leaf block">Nutrieat</span>
@@ -120,41 +92,37 @@
         </div>
       </a>
 
-      <!-- Nav Links (Desktop) -->
       <nav class="hidden md:flex items-center gap-8 text-sm font-bold text-cocoa/85">
-        <a href="#menu" class="hover:text-leaf transition-colors">Menu & Macros</a>
-        <a href="#story" class="hover:text-leaf transition-colors">Our Story</a>
-        <a href="#free-meal" class="hover:text-leaf transition-colors">Free Meal</a>
-        <a href="#visit" class="hover:text-leaf transition-colors">Tilak Nagar Stall</a>
+        <a href="index.html" class="text-leaf underline decoration-2 underline-offset-4">Home</a>
+        <a href="menu.html" class="hover:text-leaf transition-colors">Menu & Builder</a>
+        <a href="story.html" class="hover:text-leaf transition-colors">Our Story & Stall</a>
       </nav>
 
-      <!-- CTA (Compact on mobile, full handle on sm+) -->
       <a href="https://instagram.com/nutrieatofficial" target="_blank" class="magnetic-btn shrink-0 bg-sage text-espresso text-[10px] sm:text-xs font-bold uppercase tracking-wider px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full border border-leaf/20 hover:bg-leaf hover:text-linen">
         <span class="sm:hidden">Instagram ↗</span>
         <span class="hidden sm:inline">@nutrieatofficial</span>
       </a>
     </div>
+
+    <nav class="md:hidden max-w-xs mx-auto mt-2 bg-linen/95 backdrop-blur-md border border-cocoa/15 rounded-full px-4 py-1.5 flex items-center justify-around text-xs font-bold text-cocoa shadow-sm">
+      <a href="index.html" class="text-leaf px-2 py-0.5">Home</a>
+      <span class="text-cocoa/25">•</span>
+      <a href="menu.html" class="hover:text-leaf px-2 py-0.5">Menu & Builder</a>
+      <span class="text-cocoa/25">•</span>
+      <a href="story.html" class="hover:text-leaf px-2 py-0.5">Our Story</a>
+    </nav>
   </header>
 
   <!-- HERO SECTION -->
-  <section class="relative min-h-screen pt-32 pb-20 px-6 flex flex-col justify-center overflow-hidden">
-    <!-- Soft Pastel Botanical Blobs -->
+  <section class="relative min-h-screen pt-36 sm:pt-32 pb-20 px-6 flex flex-col justify-center overflow-hidden">
     <div class="absolute -top-20 -right-20 w-96 h-96 bg-sage/45 rounded-full blur-3xl -z-10"></div>
     <div class="absolute bottom-10 -left-20 w-80 h-80 bg-kraft/35 rounded-full blur-3xl -z-10"></div>
 
-    <!-- Decorative Botanical Leaf Silhouette (Top Left) -->
-    <svg class="hidden lg:block absolute top-24 left-8 w-36 h-36 text-leaf/15 pointer-events-none" viewBox="0 0 120 120" fill="currentColor">
-      <path d="M10 110 C30 70, 70 30, 110 10 C90 50, 50 90, 10 110 Z" />
-      <path d="M35 85 C20 65, 25 40, 45 30 C45 50, 45 70, 35 85 Z" />
-      <path d="M65 55 C85 45, 100 55, 105 75 C85 75, 70 65, 65 55 Z" />
-    </svg>
-
     <div class="max-w-6xl mx-auto w-full grid lg:grid-cols-12 gap-12 items-center">
-      <!-- Left Column: Copy matching Standee Tone -->
       <div class="lg:col-span-7 space-y-6">
-        <div class="hero-badge inline-flex items-center gap-2 bg-parchment border border-cocoa/15 px-4 py-1.5 rounded-full">
-          <span class="w-2.5 h-2.5 rounded-full bg-leaf shrink-0"></span>
-          <span class="text-xs font-bold uppercase tracking-wider text-cocoa">Healthy Startup by Friends in Our 20s • Mumbai</span>
+      <div id="stall-status-badge" class="inline-flex items-center gap-2 bg-linen/10 border border-linen/15 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-cocoa">
+          <span id="stall-status-dot" class="w-2.5 h-2.5 rounded-full bg-sage animate-pulse"></span>
+          <span id="stall-status-text">Checking Stall Hours...</span>
         </div>
 
         <h1 class="hero-title font-display font-bold text-5xl sm:text-6xl lg:text-[4.25rem] leading-[1.02] tracking-tight text-cocoa">
@@ -164,66 +132,54 @@
         </h1>
 
         <p class="hero-sub text-lg sm:text-xl text-cocoa/90 max-w-xl leading-relaxed font-semibold">
-          Making healthy eating a delicious everyday choice. Wholesome oats bowls, peanut butter sandwiches, and fresh fruit salads starting at <span class="font-display font-bold text-espresso bg-sage px-2.5 py-0.5 rounded-full">₹60</span>.
+          Making healthy eating a delicious everyday choice. Classic & chocolate oats bowls, peanut butter sandwiches, and whey protein smoothies starting at <span class="font-display font-bold text-espresso bg-sage px-2.5 py-0.5 rounded-full">₹70</span>.
         </p>
 
         <div class="hero-ctas flex flex-wrap items-center gap-4 pt-2">
-          <a href="#menu" class="magnetic-btn bg-leaf text-linen font-bold px-8 py-4 rounded-full hover:bg-espresso shadow-md flex items-center gap-2">
-            See Today's Menu
-            <span>↓</span>
+          <a href="menu.html" class="magnetic-btn bg-leaf text-linen font-bold px-8 py-4 rounded-full hover:bg-espresso shadow-md flex items-center gap-2">
+            Explore Menu & Macro Builder →
           </a>
-          <a href="#visit" class="magnetic-btn bg-parchment border border-cocoa/20 text-cocoa font-bold px-7 py-4 rounded-full hover:bg-sand">
-            Find Our Stall
+          <a href="story.html" class="magnetic-btn bg-parchment border border-cocoa/20 text-cocoa font-bold px-7 py-4 rounded-full hover:bg-sand">
+            Meet The Crew
           </a>
         </div>
 
-        <!-- Pastel Pill Highlights -->
         <div class="hero-stats flex flex-wrap gap-3 pt-4">
           <div class="bg-sage/60 border border-leaf/15 px-4 py-2.5 rounded-2xl">
-            <span class="font-display font-bold text-lg text-leaf block leading-none">21g Protein</span>
-            <span class="text-[11px] font-bold text-cocoa/80">High Protein Oats Bowl</span>
+            <span class="font-display font-bold text-lg text-leaf block leading-none">26g Protein</span>
+            <span class="text-[11px] font-bold text-cocoa/80">Whey Protein Smoothie</span>
           </div>
           <div class="bg-sand/70 border border-cocoa/15 px-4 py-2.5 rounded-2xl">
-            <span class="font-display font-bold text-lg text-cocoa block leading-none">₹60 – ₹100</span>
+            <span class="font-display font-bold text-lg text-cocoa block leading-none">₹70 – ₹110</span>
             <span class="text-[11px] font-bold text-cocoa/80">Everyday Pocket-Friendly</span>
           </div>
           <div class="bg-parchment border border-cocoa/15 px-4 py-2.5 rounded-2xl">
             <span class="font-display font-bold text-lg text-leaf block leading-none">100% Fresh</span>
-            <span class="text-[11px] font-bold text-cocoa/80">Prepped Daily in Mumbai</span>
+            <span class="text-[11px] font-bold text-cocoa/80">Tilak Nagar, Mumbai</span>
           </div>
         </div>
       </div>
 
-      <!-- Right Column: Featured Bowl Card using your local high_protein.png -->
+      <!-- Featured Bowl Card -->
       <div class="lg:col-span-5 relative">
-        <div class="hero-card relative bg-parchment border-2 border-cocoa/15 rounded-[2.5rem] p-6 shadow-xl rotate-2 hover:rotate-0 transition-transform duration-500">
-          <!-- Floating Macro Badge matching Menu -->
+        <a href="menu.html" class="block hero-card relative bg-parchment border-2 border-cocoa/15 rounded-[2.5rem] p-6 shadow-xl rotate-2 hover:rotate-0 transition-transform duration-500">
           <div class="floating-badge absolute -top-4 -left-4 bg-sand border border-cocoa/15 text-cocoa font-bold text-xs px-4 py-2.5 rounded-2xl shadow-md -rotate-6 text-center leading-tight">
             420 kcal<br>21g P | 9g F
           </div>
-
-          <!-- Floating Price Pill matching Menu -->
           <div class="floating-badge absolute -bottom-4 -right-4 bg-sage border border-leaf/20 text-espresso font-display font-bold text-2xl px-6 py-2.5 rounded-full shadow-md rotate-6">
             ₹100
           </div>
-
-          <!-- Local Asset: assets/high_protein.png -->
           <div class="aspect-square rounded-[2rem] overflow-hidden bg-linen mb-4 flex items-center justify-center p-2">
-            <img 
-              src="assets/high_protein.png" 
-              alt="Nutrieat High Protein Oats Bowl" 
-              class="w-full h-full object-contain drop-shadow-md"
-            />
+            <img src="assets/high_protein.png" alt="Nutrieat High Protein Oats Bowl" class="w-full h-full object-contain drop-shadow-md" />
           </div>
-
           <div class="flex items-center justify-between px-2">
             <div>
               <span class="text-xs font-bold uppercase tracking-wider text-leaf">Most Loved Bowl</span>
               <h3 class="font-display font-bold text-xl text-cocoa">High Protein Oats Bowl</h3>
             </div>
-            <span class="font-script text-xl text-cocoa/80">Eat Good!</span>
+            <span class="font-script text-xl text-cocoa/80">Customize →</span>
           </div>
-        </div>
+        </a>
       </div>
     </div>
   </section>
@@ -231,256 +187,98 @@
   <!-- PASTEL KINETIC MARQUEE -->
   <div class="bg-kraft/55 text-cocoa py-3.5 border-y border-cocoa/15 overflow-hidden">
     <div class="marquee-track font-display font-bold text-lg sm:text-xl tracking-wide uppercase flex items-center gap-8">
-      <span>EAT GOOD. FEEL GOOD.</span>
-      <span class="text-leaf">✦</span>
-      <span>FRESH. NUTRITIOUS. DELICIOUS.</span>
-      <span class="text-leaf">✦</span>
-      <span>BUILT BY FRIENDS IN OUR 20s</span>
-      <span class="text-leaf">✦</span>
-      <span>TILAK NAGAR • SAHYADRI GROUND</span>
-      <span class="text-leaf">✦</span>
-      <span>DISCOVER MORE, EAT BETTER</span>
-      <span class="text-leaf">✦</span>
-      <!-- Duplicate for seamless loop -->
-      <span>EAT GOOD. FEEL GOOD.</span>
-      <span class="text-leaf">✦</span>
-      <span>FRESH. NUTRITIOUS. DELICIOUS.</span>
-      <span class="text-leaf">✦</span>
-      <span>BUILT BY FRIENDS IN OUR 20s</span>
-      <span class="text-leaf">✦</span>
-      <span>TILAK NAGAR • SAHYADRI GROUND</span>
-      <span class="text-leaf">✦</span>
-      <span>DISCOVER MORE, EAT BETTER</span>
-      <span class="text-leaf">✦</span>
+      <span>EAT GOOD. FEEL GOOD.</span><span class="text-leaf">✦</span>
+      <span>FRESH. NUTRITIOUS. DELICIOUS.</span><span class="text-leaf">✦</span>
+      <span>BUILT BY FRIENDS IN OUR 20s</span><span class="text-leaf">✦</span>
+      <span>TILAK NAGAR • SAHYADRI GROUND</span><span class="text-leaf">✦</span>
+      <span>WHEY SMOOTHIES & OATS BOWLS</span><span class="text-leaf">✦</span>
+      <span>EAT GOOD. FEEL GOOD.</span><span class="text-leaf">✦</span>
+      <span>FRESH. NUTRITIOUS. DELICIOUS.</span><span class="text-leaf">✦</span>
+      <span>BUILT BY FRIENDS IN OUR 20s</span><span class="text-leaf">✦</span>
+      <span>TILAK NAGAR • SAHYADRI GROUND</span><span class="text-leaf">✦</span>
+      <span>WHEY SMOOTHIES & OATS BOWLS</span><span class="text-leaf">✦</span>
     </div>
   </div>
 
- <!-- MENU & MACROS SECTION -->
-  <section id="menu" class="py-24 px-6 max-w-6xl mx-auto">
-    <div class="text-center max-w-2xl mx-auto mb-14">
-      <div class="inline-flex items-center gap-2 bg-sage/50 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest text-leaf mb-3">
-        Nutrieat Menu
+  <!-- QUICK MENU TEASER (Links straight to menu.html) -->
+  <section class="py-20 px-6 max-w-6xl mx-auto">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
+      <div>
+        <span class="text-xs font-bold uppercase tracking-widest text-leaf block mb-1">Daily Lineup</span>
+        <h2 class="font-display font-bold text-3xl sm:text-4xl text-cocoa">CRAFTED FOR EVERY CRAVING</h2>
       </div>
-      <h2 class="font-display font-bold text-4xl sm:text-5xl text-cocoa tracking-tight mb-3">WHOLESOME & HONEST</h2>
-      <p class="text-cocoa/85 font-semibold text-base">
-        Chocolate or classic—bowls, sandwiches, and high-protein shakes freshly prepped with exact calories, protein, and fats.
-      </p>
+      <a href="menu.html" class="inline-flex items-center gap-2 font-bold text-sm text-leaf hover:underline">
+        View Full Menu & Macro Calculator →
+      </a>
     </div>
 
-    <!-- 4-Card Menu Grid -->
-    <div class="grid md:grid-cols-2 gap-8">
-      
-      <!-- ITEM 1: CLASSIC OATS BOWL (NON-CHOCOLATE) -->
-      <div class="menu-card bg-linen border-2 border-cocoa/15 rounded-[2rem] p-7 shadow-sm flex flex-col justify-between hover:border-leaf/50 transition-colors">
-        <div>
-          <div class="flex items-center justify-between gap-4 mb-2">
-            <h3 class="font-display font-bold text-2xl text-cocoa tracking-tight">CLASSIC HONEY & NUT OATS</h3>
-            <span class="bg-sage text-espresso font-display font-bold text-xl px-5 py-1 rounded-full shrink-0">₹80</span>
-          </div>
-          <p class="text-cocoa/85 font-semibold text-sm mb-4">Zero chocolate—creamy rolled oats topped with fresh banana slices, crunchy almonds, and pure honey.</p>
+    <div class="grid sm:grid-cols-3 gap-6">
+      <a href="menu.html" class="bg-linen border-2 border-cocoa/15 rounded-3xl p-6 hover:border-leaf/50 transition-all">
+        <div class="flex justify-between items-center mb-3">
+          <span class="font-display font-bold text-lg text-cocoa">Classic & Choco Oats</span>
+          <span class="bg-sage font-display font-bold px-3.5 py-0.5 rounded-full text-sm">₹80</span>
         </div>
+        <img src="assets/basic_oats.png" alt="Oats Bowls" class="h-40 w-full object-contain my-2" />
+        <p class="text-xs font-bold text-cocoa/75 mt-2">Choose honey-almond or dark chocolate drizzle.</p>
+      </a>
 
-        <div class="relative pt-2">
-          <div class="flex justify-end mb-2">
-            <span class="bg-sand text-cocoa font-bold text-xs px-4 py-1.5 rounded-2xl text-center leading-tight shadow-sm">
-              300 kcal<br>9g P | 6g F
-            </span>
-          </div>
-          <div class="aspect-[16/11] rounded-2xl overflow-hidden flex items-center justify-center">
-            <!-- Swap with assets/plain_oats.png once exported -->
-            <img 
-              src="https://images.unsplash.com/photo-1517673132405-a56a62b18caf?auto=format&fit=crop&w=800&q=80" 
-              alt="Classic Honey & Nut Oats Bowl" 
-              class="dish-img w-full h-full object-contain rounded-2xl drop-shadow-md"
-            >
-          </div>
+      <a href="menu.html" class="bg-linen border-2 border-leaf/35 rounded-3xl p-6 hover:border-leaf transition-all">
+        <div class="flex justify-between items-center mb-3">
+          <span class="font-display font-bold text-lg text-cocoa">High Protein Oats</span>
+          <span class="bg-sage font-display font-bold px-3.5 py-0.5 rounded-full text-sm">₹100</span>
         </div>
-      </div>
+        <img src="assets/high_protein.png" alt="High Protein Oats" class="h-40 w-full object-contain my-2" />
+        <p class="text-xs font-bold text-leaf mt-2">420 kcal • 21g Protein | 9g Fats</p>
+      </a>
 
-      <!-- ITEM 2: CHOCOLATE OATS BOWL (assets/basic_oats.png) -->
-      <div class="menu-card bg-linen border-2 border-cocoa/15 rounded-[2rem] p-7 shadow-sm flex flex-col justify-between hover:border-leaf/50 transition-colors">
-        <div>
-          <div class="flex items-center justify-between gap-4 mb-2">
-            <h3 class="font-display font-bold text-2xl text-cocoa tracking-tight">CHOCO PEANUT OATS BOWL</h3>
-            <span class="bg-sage text-espresso font-display font-bold text-xl px-5 py-1 rounded-full shrink-0">₹80</span>
-          </div>
-          <p class="text-cocoa/85 font-semibold text-sm mb-4">Rich dark chocolate drizzle over creamy oats, sliced bananas, and roasted peanut butter.</p>
+      <a href="menu.html" class="bg-linen border-2 border-cocoa/15 rounded-3xl p-6 hover:border-leaf/50 transition-all">
+        <div class="flex justify-between items-center mb-3">
+          <span class="font-display font-bold text-lg text-cocoa">PB Sandwich & Shakes</span>
+          <span class="bg-sage font-display font-bold px-3.5 py-0.5 rounded-full text-sm">₹70+</span>
         </div>
-
-        <div class="relative pt-2">
-          <div class="flex justify-end mb-2">
-            <span class="bg-sand text-cocoa font-bold text-xs px-4 py-1.5 rounded-2xl text-center leading-tight shadow-sm">
-              310 kcal<br>9g P | 7g F
-            </span>
-          </div>
-          <div class="aspect-[16/11] rounded-2xl overflow-hidden flex items-center justify-center">
-            <img src="assets/basic_oats.png" alt="Choco Peanut Oats Bowl" class="dish-img w-full h-full object-contain drop-shadow-md">
-          </div>
-        </div>
-      </div>
-
-      <!-- ITEM 3: HIGH PROTEIN OATS BOWL (assets/high_protein.png) -->
-      <div class="menu-card bg-linen border-2 border-leaf/35 rounded-[2rem] p-7 shadow-sm flex flex-col justify-between relative">
-        <div class="absolute -top-3 left-7 bg-leaf text-linen text-[11px] font-bold uppercase tracking-wider px-3.5 py-0.5 rounded-full">
-          Bestseller
-        </div>
-        <div>
-          <div class="flex items-center justify-between gap-4 mb-2">
-            <h3 class="font-display font-bold text-2xl text-cocoa tracking-tight">HIGH PROTEIN OATS BOWL</h3>
-            <span class="bg-sage text-espresso font-display font-bold text-xl px-5 py-1 rounded-full shrink-0">₹100</span>
-          </div>
-          <p class="text-cocoa/85 font-semibold text-sm mb-4">A power-packed, nutrient-rich breakfast loaded with protein oats, nuts, fruits, and peanut butter.</p>
-        </div>
-
-        <div class="relative pt-2">
-          <div class="flex justify-end mb-2">
-            <span class="bg-sand text-cocoa font-bold text-xs px-4 py-1.5 rounded-2xl text-center leading-tight shadow-sm">
-              420 kcal<br>21g P | 9g F
-            </span>
-          </div>
-          <div class="aspect-[16/11] rounded-2xl overflow-hidden flex items-center justify-center">
-            <img src="assets/high_protein.png" alt="High Protein Oats Bowl" class="dish-img w-full h-full object-contain drop-shadow-md">
-          </div>
-        </div>
-      </div>
-
-      <!-- ITEM 4: WHEY PROTEIN SMOOTHIE -->
-      <div class="menu-card bg-linen border-2 border-leaf/35 rounded-[2rem] p-7 shadow-sm flex flex-col justify-between relative hover:border-leaf/50 transition-colors">
-        <div class="absolute -top-3 left-7 bg-kraft text-espresso text-[11px] font-bold uppercase tracking-wider px-3.5 py-0.5 rounded-full">
-          New Drop
-        </div>
-        <div>
-          <div class="flex items-center justify-between gap-4 mb-2">
-            <h3 class="font-display font-bold text-2xl text-cocoa tracking-tight">WHEY PROTEIN SMOOTHIE</h3>
-            <span class="bg-sage text-espresso font-display font-bold text-xl px-5 py-1 rounded-full shrink-0">₹110</span>
-          </div>
-          <p class="text-cocoa/85 font-semibold text-sm mb-4">Thick, chilled post-workout shake blended with a full scoop of whey, banana, and peanut butter.</p>
-        </div>
-
-        <div class="relative pt-2">
-          <div class="flex justify-end mb-2">
-            <span class="bg-sand text-cocoa font-bold text-xs px-4 py-1.5 rounded-2xl text-center leading-tight shadow-sm">
-              340 kcal<br>26g P | 5g F
-            </span>
-          </div>
-          <div class="aspect-[16/11] rounded-2xl overflow-hidden flex items-center justify-center">
-            <!-- Swap with assets/whey_smoothie.png once exported -->
-            <img 
-              src="https://images.unsplash.com/photo-1553530666-ba11a7da3888?auto=format&fit=crop&w=800&q=80" 
-              alt="Whey Protein Smoothie" 
-              class="dish-img w-full h-full object-contain rounded-2xl drop-shadow-md"
-            >
-          </div>
-        </div>
-      </div>
-
-      <!-- ITEM 5: PEANUT BUTTER SANDWICH (assets/peanut_butter.png) — Centered across bottom on desktop -->
-      <div class="menu-card md:col-span-2 md:max-w-xl md:mx-auto w-full bg-linen border-2 border-cocoa/15 rounded-[2rem] p-7 shadow-sm flex flex-col justify-between hover:border-leaf/50 transition-colors">
-        <div>
-          <div class="flex items-center justify-between gap-4 mb-2">
-            <h3 class="font-display font-bold text-2xl text-cocoa tracking-tight">PEANUT BUTTER SANDWICH</h3>
-            <span class="bg-sage text-espresso font-display font-bold text-xl px-5 py-1 rounded-full shrink-0">₹70</span>
-          </div>
-          <p class="text-cocoa/85 font-semibold text-sm mb-4">A delicious and energy-packed bite with toasted multigrain bread, creamy peanut butter, and bananas.</p>
-        </div>
-
-        <div class="relative pt-2">
-          <div class="flex justify-end mb-2">
-            <span class="bg-sand text-cocoa font-bold text-xs px-4 py-1.5 rounded-2xl text-center leading-tight shadow-sm">
-              380 kcal<br>12g P | 6g F
-            </span>
-          </div>
-          <div class="aspect-[16/11] rounded-2xl overflow-hidden flex items-center justify-center">
-            <img src="assets/peanut_butter.png" alt="Peanut Butter Sandwich" class="dish-img w-full h-full object-contain drop-shadow-md">
-          </div>
-        </div>
-      </div>
-
+        <img src="assets/peanut_butter.png" alt="Peanut Butter Sandwich" class="h-40 w-full object-contain my-2" />
+        <p class="text-xs font-bold text-cocoa/75 mt-2">Toasted multigrain PB sandwiches & whey smoothies.</p>
+      </a>
     </div>
   </section>
 
-  <!-- THE 20s FOUNDER STORY SECTION -->
-  <section id="story" class="py-24 px-6 bg-parchment/70 border-y border-cocoa/15">
-    <div class="max-w-6xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
-      <div class="lg:col-span-6 space-y-6 story-reveal">
-        <span class="inline-block bg-sage px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest text-espresso">
-          Who's Behind Nutrieat
-        </span>
-        <h2 class="font-display font-bold text-4xl sm:text-5xl text-cocoa leading-tight">
-          Built by friends in our 20s who wanted better everyday food.
-        </h2>
-        <p class="text-cocoa/90 text-base sm:text-lg leading-relaxed font-semibold">
-          Right outside Sahyadri Ground in Tilak Nagar, we saw everyone finishing morning runs, cricket matches, and gym workouts with nowhere affordable to grab clean, high-protein fuel.
-        </p>
-        <p class="text-cocoa/85 text-base leading-relaxed font-medium">
-          So we started <strong class="text-leaf font-bold">Nutrieat</strong>—bringing real rolled oats, creamy peanut butter, dark chocolate, and freshly cut seasonal fruit straight to the neighborhood at honest prices.
-        </p>
-
-        <div class="grid sm:grid-cols-2 gap-4 pt-2">
-          <div class="bg-linen p-5 rounded-2xl border border-cocoa/15">
-            <div class="font-display font-bold text-lg text-leaf mb-1">Honest Macros</div>
-            <p class="text-sm text-cocoa/85 font-medium">Exact kcal, protein, and fats calculated for every single serving.</p>
-          </div>
-          <div class="bg-linen p-5 rounded-2xl border border-cocoa/15">
-            <div class="font-display font-bold text-lg text-leaf mb-1">Warm Street Vibe</div>
-            <p class="text-sm text-cocoa/85 font-medium">No fancy cafe markups—just fresh bowls made with care by friends.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Polaroid Crew Frames -->
-      <div class="lg:col-span-6 grid grid-cols-2 gap-5 story-reveal">
-        <div class="bg-linen p-4 pb-6 rounded-3xl shadow-md -rotate-3 border border-cocoa/15">
-          <div class="aspect-[4/5] rounded-2xl overflow-hidden bg-sand/60 mb-3 flex items-center justify-center text-center p-4">
-            <span class="text-xs font-bold text-cocoa/70">[ Add Crew / Stall Photo #1 ]</span>
-          </div>
-          <p class="font-script text-xl text-center text-cocoa">Morning Prep @ Tilak Nagar</p>
-        </div>
-
-        <div class="bg-linen p-4 pb-6 rounded-3xl shadow-md rotate-3 translate-y-6 border border-cocoa/15">
-          <div class="aspect-[4/5] rounded-2xl overflow-hidden bg-sage/50 mb-3 flex items-center justify-center text-center p-4">
-            <span class="text-xs font-bold text-cocoa/70">[ Add Stall Crowd Photo #2 ]</span>
-          </div>
-          <p class="font-script text-xl text-center text-cocoa">Eat Good. Feel Good.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- STANDEE PROMO BANNER ("Your next meal could be FREE!") -->
-  <section id="free-meal" class="py-20 px-6 max-w-5xl mx-auto">
+  <!-- STANDEE STALL CHALLENGE BANNER -->
+  <section id="free-meal" class="py-12 px-6 max-w-5xl mx-auto">
     <div class="promo-card bg-kraft/65 border-2 border-cocoa/15 rounded-[2.5rem] p-8 sm:p-14 text-center relative overflow-hidden shadow-sm">
       <span class="text-xs font-bold uppercase tracking-widest text-cocoa/80 block mb-2">
-        Nutrieat Stall Challenge
+        Live At Tilak Nagar Stall • 7 AM – 11 AM
       </span>
       <h2 class="font-display font-bold text-3xl sm:text-5xl text-cocoa mb-4">
         Your next meal could be
       </h2>
       
-      <!-- Matching the angled white-and-green FREE! sticker on your standee -->
+      <!-- Matching your Standee's FREE! sticker -->
       <div class="inline-block bg-linen border-4 border-leaf px-9 py-2.5 rounded-2xl shadow-md -rotate-3 mb-6">
         <span class="font-display font-bold text-4xl sm:text-6xl text-promoRed tracking-wide">FREE!</span>
       </div>
 
-      <p class="text-cocoa font-bold max-w-md mx-auto mb-2 text-base sm:text-lg">
-        Complete the task and win exciting discounts.
+      <p class="text-cocoa font-bold max-w-lg mx-auto mb-2 text-base sm:text-lg">
+        Step up to the counter, take on our daily stall challenge, and win instant discounts—or your meal completely on the house.
       </p>
       <p class="font-script text-2xl sm:text-3xl text-cocoa/90 mb-8">
         Discover More, Eat Better — @nutrieatofficial
       </p>
 
-      <a href="https://instagram.com/nutrieatofficial" target="_blank" class="magnetic-btn inline-flex items-center gap-2 bg-leaf text-linen font-bold text-sm px-8 py-4 rounded-full hover:bg-espresso shadow-md">
-        <span>Follow Us on Instagram</span>
-        <span>→</span>
-      </a>
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a href="https://instagram.com/nutrieatofficial" target="_blank" class="magnetic-btn inline-flex items-center gap-2 bg-leaf text-linen font-bold text-sm px-8 py-4 rounded-full hover:bg-espresso shadow-md">
+          <span>See Today's Challenge on Instagram</span>
+          <span>↗</span>
+        </a>
+        <a href="story.html" class="magnetic-btn inline-flex items-center gap-2 bg-linen border border-cocoa/20 text-cocoa font-bold text-sm px-7 py-4 rounded-full hover:bg-sage">
+          <span>Find The Stall</span>
+        </a>
+      </div>
     </div>
   </section>
 
-  <!-- LOCATION & FOOTER (Matching the bottom bar of your Standee) -->
-  <footer id="visit" class="bg-espresso text-linen pt-16 pb-10 px-6">
+  <!-- FOOTER -->
+  <footer id="visit" class="bg-espresso text-linen pt-16 pb-10 px-6 mt-12">
     <div class="max-w-6xl mx-auto grid md:grid-cols-12 gap-10 pb-14 border-b border-linen/15 items-center">
-      
-      <!-- Exact Location from Standee -->
       <div class="md:col-span-7 space-y-4">
         <div class="inline-flex items-center gap-2 text-kraft text-xs font-bold uppercase tracking-widest">
           <span>📍</span> Visit Our Stall
@@ -490,20 +288,20 @@
           SAHYADRI GROUND,<br>
           <span class="text-kraft">OPPOSITE BUILDING NO. 2, MUMBAI</span>
         </h2>
-        <div class="pt-2">
+        <div class="pt-2 flex flex-wrap gap-3">
           <a href="https://maps.google.com/?q=Sahyadri+Ground+Tilak+Nagar+Mumbai" target="_blank" class="inline-block bg-sage text-espresso font-bold text-sm px-7 py-3.5 rounded-full hover:bg-kraft transition-colors">
-            Get Directions on Google Maps ↗
+            Get Directions ↗
+          </a>
+          <a href="story.html" class="inline-block border border-linen/25 text-linen font-bold text-sm px-7 py-3.5 rounded-full hover:bg-linen/10 transition-colors">
+            Stall Timings & Story
           </a>
         </div>
       </div>
 
-      <!-- Instagram Card matching Standee Bottom Right -->
       <div class="md:col-span-5 bg-linen/10 border border-linen/15 rounded-3xl p-8 text-center">
         <p class="font-script text-3xl text-kraft mb-1">Discover More, Eat Better.</p>
         <h3 class="font-display font-bold text-2xl text-linen mb-2">@nutrieatofficial</h3>
-        <p class="text-xs font-semibold uppercase tracking-widest text-linen/70 mb-6">
-          Follow Us On Instagram
-        </p>
+        <p class="text-xs font-semibold uppercase tracking-widest text-linen/70 mb-6">Follow Us On Instagram</p>
         <a href="https://instagram.com/nutrieatofficial" target="_blank" class="block w-full bg-linen text-espresso font-display font-bold py-3.5 rounded-full hover:bg-sage transition-colors">
           Open Instagram Profile
         </a>
@@ -512,26 +310,38 @@
 
     <div class="max-w-6xl mx-auto pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-semibold text-linen/60">
       <div>© 2026 NUTRIEAT • EAT GOOD. FEEL GOOD.</div>
-      <div>TILAK NAGAR, MUMBAI</div>
+      <div class="flex gap-6">
+        <a href="index.html" class="hover:text-kraft">Home</a>
+        <a href="menu.html" class="hover:text-kraft">Menu & Builder</a>
+        <a href="story.html" class="hover:text-kraft">Our Story</a>
+      </div>
     </div>
   </footer>
 
-  <!-- GSAP ANIMATION SCRIPT -->
   <script>
     gsap.registerPlugin(ScrollTrigger);
 
-    // 1. Video Preloader & Hero Stagger
     const preloader = document.getElementById('preloader');
     const introVideo = document.getElementById('intro-video');
     const skipBtn = document.getElementById('skip-intro');
     let introDismissed = false;
 
+    function runHeroAnimation() {
+      gsap.timeline()
+        .from(".hero-badge", { y: 18, opacity: 0, duration: 0.45, ease: "power3.out" })
+        .from(".hero-title", { y: 30, opacity: 0, duration: 0.6, ease: "power3.out" }, "-=0.3")
+        .from(".hero-sub", { y: 20, opacity: 0, duration: 0.5, ease: "power3.out" }, "-=0.35")
+        .from(".hero-ctas", { y: 18, opacity: 0, duration: 0.45, ease: "power3.out" }, "-=0.3")
+        .from(".hero-stats", { y: 18, opacity: 0, duration: 0.45, ease: "power3.out" }, "-=0.25")
+        .from(".hero-card", { scale: 0.92, opacity: 0, rotation: 5, duration: 0.7, ease: "back.out(1.4)" }, "-=0.5");
+    }
+
     function revealSite() {
       if (introDismissed) return;
       introDismissed = true;
+      sessionStorage.setItem('nutrieat_intro_seen', 'true');
 
-      const tl = gsap.timeline();
-      tl.to(preloader, {
+      gsap.to(preloader, {
         yPercent: -100,
         duration: 0.75,
         ease: "power4.inOut",
@@ -539,73 +349,60 @@
           preloader.style.display = "none";
           introVideo.pause();
         }
-      })
-      .from(".hero-badge", { y: 18, opacity: 0, duration: 0.5, ease: "power3.out" }, "-=0.3")
-      .from(".hero-title", { y: 35, opacity: 0, duration: 0.65, ease: "power3.out" }, "-=0.35")
-      .from(".hero-sub", { y: 20, opacity: 0, duration: 0.55, ease: "power3.out" }, "-=0.4")
-      .from(".hero-ctas", { y: 18, opacity: 0, duration: 0.5, ease: "power3.out" }, "-=0.35")
-      .from(".hero-stats", { y: 18, opacity: 0, duration: 0.5, ease: "power3.out" }, "-=0.3")
-      .from(".hero-card", { scale: 0.92, opacity: 0, rotation: 5, duration: 0.75, ease: "back.out(1.4)" }, "-=0.55");
+      });
+      runHeroAnimation();
     }
 
-    // Reveal when the 8s video finishes
-    introVideo.addEventListener('ended', revealSite);
+    // Skip video automatically if user already saw it in this browser tab session
+    if (sessionStorage.getItem('nutrieat_intro_seen') === 'true') {
+      preloader.style.display = "none";
+      introVideo.pause();
+      runHeroAnimation();
+    } else {
+      introVideo.addEventListener('ended', revealSite);
+      skipBtn.addEventListener('click', revealSite);
+      introVideo.addEventListener('error', () => setTimeout(revealSite, 400));
+      setTimeout(revealSite, 8500);
+    }
 
-    // Allow manual skip anytime
-    skipBtn.addEventListener('click', revealSite);
+    gsap.to(".floating-badge", { y: -7, duration: 2.3, repeat: -1, yoyo: true, ease: "sine.inOut", stagger: 0.4 });
+    gsap.from(".promo-card", { scrollTrigger: { trigger: "#free-meal", start: "top 82%" }, scale: 0.95, y: 25, opacity: 0, duration: 0.65, ease: "back.out(1.4)" });
+    // Live Stall Open/Closed Status (Locked to IST / Mumbai Time)
+    function updateStallStatus() {
+      const badge = document.getElementById('stall-status-badge');
+      const dot = document.getElementById('stall-status-dot');
+      const text = document.getElementById('stall-status-text');
+      if (!badge || !dot || !text) return;
 
-    // Fallback: if video fails to load or autoplay is blocked, reveal after 8.5s (or 0.5s if errored)
-    introVideo.addEventListener('error', () => setTimeout(revealSite, 500));
-    setTimeout(revealSite, 8500);
+      // Get current Mumbai (IST) hour and minute
+      const nowIST = new Date(new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata' }));
+      const totalMins = nowIST.getHours() * 60 + nowIST.getMinutes();
 
-    // 2. Gentle Float on Macro/Price Badges
-    gsap.to(".floating-badge", {
-      y: -7,
-      duration: 2.3,
-      repeat: -1,
-      yoyo: true,
-      ease: "sine.inOut",
-      stagger: 0.4
-    });
+      // Shift 1: 7:00 AM (420) to 11:00 AM (660)
+      // Shift 2: 5:30 PM (1050) to 9:30 PM (1290)
+      const isMorningOpen = totalMins >= 420 && totalMins < 660;
+      const isEveningOpen = totalMins >= 1050 && totalMins < 1290;
 
-    // 3. Menu Cards Scroll Reveal
-    gsap.from(".menu-card", {
-      scrollTrigger: {
-        trigger: "#menu",
-        start: "top 80%",
-      },
-      y: 45,
-      opacity: 0,
-      duration: 0.65,
-      stagger: 0.14,
-      ease: "power3.out"
-    });
+      if (isMorningOpen) {
+        text.textContent = 'Open Now • Serving Morning Shift till 11:00 AM';
+        dot.className = 'w-2.5 h-2.5 rounded-full bg-green-400 animate-pulse';
+      } else if (isEveningOpen) {
+        text.textContent = 'Closed for Tonight • Back Fresh at 7:00 AM';
+        dot.className = 'w-2.5 h-2.5 rounded-full bg-green-400 animate-pulse';
+      } else if (totalMins < 420) {
+        text.textContent = 'Prepping Fresh Oats • Opens at 7:00 AM';
+        dot.className = 'w-2.5 h-2.5 rounded-full bg-kraft';
+      } else if (totalMins >= 660 && totalMins < 1050) {
+        text.textContent = 'Closed for Today • Back Fresh at 7:00 AM';
+        dot.className = 'w-2.5 h-2.5 rounded-full bg-kraft';
+      } else {
+        text.textContent = 'Closed for Tonight • Back Fresh at 7:00 AM';
+        dot.className = 'w-2.5 h-2.5 rounded-full bg-red-400';
+      }
+    }
 
-    // 4. Story Section Reveal
-    gsap.from(".story-reveal", {
-      scrollTrigger: {
-        trigger: "#story",
-        start: "top 78%",
-      },
-      y: 35,
-      opacity: 0,
-      duration: 0.75,
-      stagger: 0.2,
-      ease: "power3.out"
-    });
-
-    // 5. Promo Banner Pop
-    gsap.from(".promo-card", {
-      scrollTrigger: {
-        trigger: "#free-meal",
-        start: "top 82%",
-      },
-      scale: 0.95,
-      y: 25,
-      opacity: 0,
-      duration: 0.65,
-      ease: "back.out(1.4)"
-    });
+    updateStallStatus();
+    setInterval(updateStallStatus, 60000);
   </script>
 </body>
 </html>
