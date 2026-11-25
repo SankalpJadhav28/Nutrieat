@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nutrieat — Eat Good. Feel Good.</title>
+  <link rel="icon" href="assets/logo1.png" type="image/png" />
   
   <!-- Google Fonts matching the Standee & Menu vibe: Fredoka (Rounded Display), Quicksand (Clean Friendly Body), Patrick Hand (Standee Script) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -85,34 +86,41 @@
 </head>
 <body class="font-sans linen-texture antialiased selection:bg-sage selection:text-espresso">
 
-  <!-- PRELOADER -->
-  <div id="preloader" class="fixed inset-0 z-[9999] bg-parchment text-cocoa flex flex-col items-center justify-center border-b-4 border-leaf">
-    <div class="flex flex-col items-center mb-3">
-      <!-- Nutrieat Brand Mark -->
-      <img src="assets/logo.png" alt="Nutrieat Logo" class="h-40 w-auto object-contain" />
-        <path d="M18 76L30 30C31.5 24 37 22 41 27L62 56C66 61 73 59 77 53C84 42 84 26 73 19C62 12 48 18 42 24C52 12 72 8 84 19C96 30 93 52 79 65C67 76 52 79 40 77C50 76 60 72 65 67L43 38L32 76H18Z" fill="currentColor"/>
-        <path d="M56 48C56 35 66 25 77 23C77 36 69 47 56 48Z" fill="currentColor"/>
-      </svg>
-      
-    </div>
-    <div class="text-xs font-bold tracking-widest uppercase text-cocoa/70 mt-2">
-      Preparing Fresh Bowls... <span id="loader-percent" class="text-leaf">0%</span>
-    </div>
+  <!-- PRELOADER (Video Intro) -->
+  <div id="preloader" class="fixed inset-0 z-[9999] bg-linen flex items-center justify-center overflow-hidden">
+    <video
+      id="intro-video"
+      src="assets/brand_logo.mp4"
+      autoplay
+      muted
+      playsinline
+      preload="auto"
+      class="w-full h-full max-w-lg max-h-[80vh] object-contain px-6"
+    ></video>
+
+    <button
+      id="skip-intro"
+      type="button"
+      class="absolute bottom-8 right-6 sm:bottom-10 sm:right-10 bg-parchment/90 backdrop-blur-sm border border-cocoa/15 text-cocoa text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full hover:bg-sage transition-colors"
+    >
+      Skip Intro →
+    </button>
   </div>
 
   <!-- NAVBAR -->
-  <header class="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 py-4" id="navbar">
-    <div class="max-w-6xl mx-auto bg-linen/90 backdrop-blur-md border border-cocoa/15 rounded-full px-5 sm:px-7 py-2.5 flex items-center justify-between shadow-sm">
+  <header class="fixed top-0 left-0 right-0 z-50 px-3 sm:px-6 py-3 sm:py-4" id="navbar">
+    <div class="max-w-6xl mx-auto bg-linen/90 backdrop-blur-md border border-cocoa/15 rounded-full px-3.5 sm:px-7 py-2 sm:py-2.5 flex items-center justify-between gap-2 shadow-sm">
+      
       <!-- Brand Logo -->
-      <a href="#" class="flex items-center gap-2.5 group">
-       <img src="assets/logo1.png" alt="Nutrieat Logo" class="h-12 w-auto object-contain" />
-        <div class="leading-none">
-          <span class="font-display font-bold text-xl tracking-tight text-leaf block">Nutrieat</span>
-          <span class="text-[9px] font-bold tracking-[0.18em] text-cocoa uppercase">Eat Good. Feel Good.</span>
+      <a href="#" class="flex items-center gap-2 sm:gap-2.5 group min-w-0">
+        <img src="assets/logo1.png" alt="Nutrieat Logo" class="h-8 sm:h-10 w-auto object-contain shrink-0 transition-transform duration-300 group-hover:rotate-6" />
+        <div class="leading-none truncate">
+          <span class="font-display font-bold text-lg sm:text-xl tracking-tight text-leaf block">Nutrieat</span>
+          <span class="hidden sm:block text-[9px] font-bold tracking-[0.18em] text-cocoa uppercase mt-0.5">Eat Good. Feel Good.</span>
         </div>
       </a>
 
-      <!-- Nav Links -->
+      <!-- Nav Links (Desktop) -->
       <nav class="hidden md:flex items-center gap-8 text-sm font-bold text-cocoa/85">
         <a href="#menu" class="hover:text-leaf transition-colors">Menu & Macros</a>
         <a href="#story" class="hover:text-leaf transition-colors">Our Story</a>
@@ -120,9 +128,10 @@
         <a href="#visit" class="hover:text-leaf transition-colors">Tilak Nagar Stall</a>
       </nav>
 
-      <!-- CTA -->
-      <a href="https://instagram.com/nutrieatofficial" target="_blank" class="magnetic-btn bg-sage text-espresso text-xs font-bold uppercase tracking-wider px-5 py-2.5 rounded-full border border-leaf/20 hover:bg-leaf hover:text-linen">
-        @nutrieatofficial
+      <!-- CTA (Compact on mobile, full handle on sm+) -->
+      <a href="https://instagram.com/nutrieatofficial" target="_blank" class="magnetic-btn shrink-0 bg-sage text-espresso text-[10px] sm:text-xs font-bold uppercase tracking-wider px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full border border-leaf/20 hover:bg-leaf hover:text-linen">
+        <span class="sm:hidden">Instagram ↗</span>
+        <span class="hidden sm:inline">@nutrieatofficial</span>
       </a>
     </div>
   </header>
@@ -144,7 +153,7 @@
       <!-- Left Column: Copy matching Standee Tone -->
       <div class="lg:col-span-7 space-y-6">
         <div class="hero-badge inline-flex items-center gap-2 bg-parchment border border-cocoa/15 px-4 py-1.5 rounded-full">
-          <span class="w-2.5 h-2.5 rounded-full bg-leaf"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-leaf shrink-0"></span>
           <span class="text-xs font-bold uppercase tracking-wider text-cocoa">Healthy Startup by Friends in Our 20s • Mumbai</span>
         </div>
 
@@ -246,7 +255,7 @@
     </div>
   </div>
 
-  <!-- MENU & MACROS SECTION (Styled directly after your printed Menu Card) -->
+ <!-- MENU & MACROS SECTION -->
   <section id="menu" class="py-24 px-6 max-w-6xl mx-auto">
     <div class="text-center max-w-2xl mx-auto mb-14">
       <div class="inline-flex items-center gap-2 bg-sage/50 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest text-leaf mb-3">
@@ -254,37 +263,63 @@
       </div>
       <h2 class="font-display font-bold text-4xl sm:text-5xl text-cocoa tracking-tight mb-3">WHOLESOME & HONEST</h2>
       <p class="text-cocoa/85 font-semibold text-base">
-        Every bowl and sandwich comes with exact calories, protein, and fats—freshly prepared right in front of you.
+        Chocolate or classic—bowls, sandwiches, and high-protein shakes freshly prepped with exact calories, protein, and fats.
       </p>
     </div>
 
-    <!-- 4-Card Menu Grid using your exact assets & card layout -->
+    <!-- 4-Card Menu Grid -->
     <div class="grid md:grid-cols-2 gap-8">
       
-      <!-- ITEM 1: BASIC OATS BOWL (assets/basic_oats.png) -->
+      <!-- ITEM 1: CLASSIC OATS BOWL (NON-CHOCOLATE) -->
       <div class="menu-card bg-linen border-2 border-cocoa/15 rounded-[2rem] p-7 shadow-sm flex flex-col justify-between hover:border-leaf/50 transition-colors">
         <div>
           <div class="flex items-center justify-between gap-4 mb-2">
-            <h3 class="font-display font-bold text-2xl text-cocoa tracking-tight">BASIC OATS BOWL</h3>
+            <h3 class="font-display font-bold text-2xl text-cocoa tracking-tight">CLASSIC HONEY & NUT OATS</h3>
             <span class="bg-sage text-espresso font-display font-bold text-xl px-5 py-1 rounded-full shrink-0">₹80</span>
           </div>
-          <p class="text-cocoa/85 font-semibold text-sm mb-4">A wholesome bowl of goodness.</p>
+          <p class="text-cocoa/85 font-semibold text-sm mb-4">Zero chocolate—creamy rolled oats topped with fresh banana slices, crunchy almonds, and pure honey.</p>
         </div>
 
         <div class="relative pt-2">
-          <!-- Macro Pill matching your Menu Card -->
+          <div class="flex justify-end mb-2">
+            <span class="bg-sand text-cocoa font-bold text-xs px-4 py-1.5 rounded-2xl text-center leading-tight shadow-sm">
+              300 kcal<br>9g P | 6g F
+            </span>
+          </div>
+          <div class="aspect-[16/11] rounded-2xl overflow-hidden flex items-center justify-center">
+            <!-- Swap with assets/plain_oats.png once exported -->
+            <img 
+              src="https://images.unsplash.com/photo-1517673132405-a56a62b18caf?auto=format&fit=crop&w=800&q=80" 
+              alt="Classic Honey & Nut Oats Bowl" 
+              class="dish-img w-full h-full object-contain rounded-2xl drop-shadow-md"
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- ITEM 2: CHOCOLATE OATS BOWL (assets/basic_oats.png) -->
+      <div class="menu-card bg-linen border-2 border-cocoa/15 rounded-[2rem] p-7 shadow-sm flex flex-col justify-between hover:border-leaf/50 transition-colors">
+        <div>
+          <div class="flex items-center justify-between gap-4 mb-2">
+            <h3 class="font-display font-bold text-2xl text-cocoa tracking-tight">CHOCO PEANUT OATS BOWL</h3>
+            <span class="bg-sage text-espresso font-display font-bold text-xl px-5 py-1 rounded-full shrink-0">₹80</span>
+          </div>
+          <p class="text-cocoa/85 font-semibold text-sm mb-4">Rich dark chocolate drizzle over creamy oats, sliced bananas, and roasted peanut butter.</p>
+        </div>
+
+        <div class="relative pt-2">
           <div class="flex justify-end mb-2">
             <span class="bg-sand text-cocoa font-bold text-xs px-4 py-1.5 rounded-2xl text-center leading-tight shadow-sm">
               310 kcal<br>9g P | 7g F
             </span>
           </div>
           <div class="aspect-[16/11] rounded-2xl overflow-hidden flex items-center justify-center">
-            <img src="assets/basic_oats.png" alt="Basic Oats Bowl" class="dish-img w-full h-full object-contain drop-shadow-md">
+            <img src="assets/basic_oats.png" alt="Choco Peanut Oats Bowl" class="dish-img w-full h-full object-contain drop-shadow-md">
           </div>
         </div>
       </div>
 
-      <!-- ITEM 2: HIGH PROTEIN OATS BOWL (assets/high_protein.png) -->
+      <!-- ITEM 3: HIGH PROTEIN OATS BOWL (assets/high_protein.png) -->
       <div class="menu-card bg-linen border-2 border-leaf/35 rounded-[2rem] p-7 shadow-sm flex flex-col justify-between relative">
         <div class="absolute -top-3 left-7 bg-leaf text-linen text-[11px] font-bold uppercase tracking-wider px-3.5 py-0.5 rounded-full">
           Bestseller
@@ -294,7 +329,7 @@
             <h3 class="font-display font-bold text-2xl text-cocoa tracking-tight">HIGH PROTEIN OATS BOWL</h3>
             <span class="bg-sage text-espresso font-display font-bold text-xl px-5 py-1 rounded-full shrink-0">₹100</span>
           </div>
-          <p class="text-cocoa/85 font-semibold text-sm mb-4">A power-packed, nutrient-rich breakfast.</p>
+          <p class="text-cocoa/85 font-semibold text-sm mb-4">A power-packed, nutrient-rich breakfast loaded with protein oats, nuts, fruits, and peanut butter.</p>
         </div>
 
         <div class="relative pt-2">
@@ -309,14 +344,44 @@
         </div>
       </div>
 
-      <!-- ITEM 3: PEANUT BUTTER SANDWICH (assets/peanut_butter.png) -->
-      <div class="menu-card bg-linen border-2 border-cocoa/15 rounded-[2rem] p-7 shadow-sm flex flex-col justify-between hover:border-leaf/50 transition-colors">
+      <!-- ITEM 4: WHEY PROTEIN SMOOTHIE -->
+      <div class="menu-card bg-linen border-2 border-leaf/35 rounded-[2rem] p-7 shadow-sm flex flex-col justify-between relative hover:border-leaf/50 transition-colors">
+        <div class="absolute -top-3 left-7 bg-kraft text-espresso text-[11px] font-bold uppercase tracking-wider px-3.5 py-0.5 rounded-full">
+          New Drop
+        </div>
+        <div>
+          <div class="flex items-center justify-between gap-4 mb-2">
+            <h3 class="font-display font-bold text-2xl text-cocoa tracking-tight">WHEY PROTEIN SMOOTHIE</h3>
+            <span class="bg-sage text-espresso font-display font-bold text-xl px-5 py-1 rounded-full shrink-0">₹110</span>
+          </div>
+          <p class="text-cocoa/85 font-semibold text-sm mb-4">Thick, chilled post-workout shake blended with a full scoop of whey, banana, and peanut butter.</p>
+        </div>
+
+        <div class="relative pt-2">
+          <div class="flex justify-end mb-2">
+            <span class="bg-sand text-cocoa font-bold text-xs px-4 py-1.5 rounded-2xl text-center leading-tight shadow-sm">
+              340 kcal<br>26g P | 5g F
+            </span>
+          </div>
+          <div class="aspect-[16/11] rounded-2xl overflow-hidden flex items-center justify-center">
+            <!-- Swap with assets/whey_smoothie.png once exported -->
+            <img 
+              src="https://images.unsplash.com/photo-1553530666-ba11a7da3888?auto=format&fit=crop&w=800&q=80" 
+              alt="Whey Protein Smoothie" 
+              class="dish-img w-full h-full object-contain rounded-2xl drop-shadow-md"
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- ITEM 5: PEANUT BUTTER SANDWICH (assets/peanut_butter.png) — Centered across bottom on desktop -->
+      <div class="menu-card md:col-span-2 md:max-w-xl md:mx-auto w-full bg-linen border-2 border-cocoa/15 rounded-[2rem] p-7 shadow-sm flex flex-col justify-between hover:border-leaf/50 transition-colors">
         <div>
           <div class="flex items-center justify-between gap-4 mb-2">
             <h3 class="font-display font-bold text-2xl text-cocoa tracking-tight">PEANUT BUTTER SANDWICH</h3>
             <span class="bg-sage text-espresso font-display font-bold text-xl px-5 py-1 rounded-full shrink-0">₹70</span>
           </div>
-          <p class="text-cocoa/85 font-semibold text-sm mb-4">A delicious and energy-packed bite.</p>
+          <p class="text-cocoa/85 font-semibold text-sm mb-4">A delicious and energy-packed bite with toasted multigrain bread, creamy peanut butter, and bananas.</p>
         </div>
 
         <div class="relative pt-2">
@@ -327,34 +392,6 @@
           </div>
           <div class="aspect-[16/11] rounded-2xl overflow-hidden flex items-center justify-center">
             <img src="assets/peanut_butter.png" alt="Peanut Butter Sandwich" class="dish-img w-full h-full object-contain drop-shadow-md">
-          </div>
-        </div>
-      </div>
-
-      <!-- ITEM 4: FRESH FRUIT SALAD (Add fruit_salad.png to assets/ when ready!) -->
-      <div class="menu-card bg-linen border-2 border-cocoa/15 rounded-[2rem] p-7 shadow-sm flex flex-col justify-between hover:border-leaf/50 transition-colors">
-        <div>
-          <div class="flex items-center justify-between gap-4 mb-2">
-            <h3 class="font-display font-bold text-2xl text-cocoa tracking-tight">FRESH FRUIT SALAD</h3>
-            <span class="bg-sage text-espresso font-display font-bold text-xl px-5 py-1 rounded-full shrink-0">₹60</span>
-          </div>
-          <p class="text-cocoa/85 font-semibold text-sm mb-4">A refreshing bowl of natural goodness.</p>
-        </div>
-
-        <div class="relative pt-2">
-          <div class="flex justify-end mb-2">
-            <span class="bg-sand text-cocoa font-bold text-xs px-4 py-1.5 rounded-2xl text-center leading-tight shadow-sm">
-              140 kcal<br>2g P | 5g F
-            </span>
-          </div>
-          <div class="aspect-[16/11] rounded-2xl overflow-hidden flex items-center justify-center">
-            <!-- Uses assets/fruit_salad.png if added, falls back cleanly to a fresh fruit photo -->
-            <img 
-              src="assets/fruit_salad.png" 
-              onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1568158879083-c42860933ed7?auto=format&fit=crop&w=700&q=80';"
-              alt="Fresh Fruit Salad" 
-              class="dish-img w-full h-full object-contain rounded-2xl drop-shadow-md"
-            >
           </div>
         </div>
       </div>
@@ -483,35 +520,45 @@
   <script>
     gsap.registerPlugin(ScrollTrigger);
 
-    // 1. Smooth Preloader Reveal
-    let count = { val: 0 };
-    const percentEl = document.getElementById('loader-percent');
+    // 1. Video Preloader & Hero Stagger
     const preloader = document.getElementById('preloader');
+    const introVideo = document.getElementById('intro-video');
+    const skipBtn = document.getElementById('skip-intro');
+    let introDismissed = false;
 
-    const tl = gsap.timeline();
+    function revealSite() {
+      if (introDismissed) return;
+      introDismissed = true;
 
-    tl.to(count, {
-      val: 100,
-      duration: 2.2,
-      ease: "power2.out",
-      onUpdate: () => {
-        percentEl.textContent = Math.floor(count.val) + "%";
-      }
-    })
-    .to(preloader, {
-      yPercent: -100,
-      duration: 0.75,
-      ease: "power4.inOut"
-    })
-    // 2. Hero Stagger
-    .from(".hero-badge", { y: 18, opacity: 0, duration: 0.5, ease: "power3.out" }, "-=0.3")
-    .from(".hero-title", { y: 35, opacity: 0, duration: 0.65, ease: "power3.out" }, "-=0.35")
-    .from(".hero-sub", { y: 20, opacity: 0, duration: 0.55, ease: "power3.out" }, "-=0.4")
-    .from(".hero-ctas", { y: 18, opacity: 0, duration: 0.5, ease: "power3.out" }, "-=0.35")
-    .from(".hero-stats", { y: 18, opacity: 0, duration: 0.5, ease: "power3.out" }, "-=0.3")
-    .from(".hero-card", { scale: 0.92, opacity: 0, rotation: 5, duration: 0.75, ease: "back.out(1.4)" }, "-=0.55");
+      const tl = gsap.timeline();
+      tl.to(preloader, {
+        yPercent: -100,
+        duration: 0.75,
+        ease: "power4.inOut",
+        onComplete: () => {
+          preloader.style.display = "none";
+          introVideo.pause();
+        }
+      })
+      .from(".hero-badge", { y: 18, opacity: 0, duration: 0.5, ease: "power3.out" }, "-=0.3")
+      .from(".hero-title", { y: 35, opacity: 0, duration: 0.65, ease: "power3.out" }, "-=0.35")
+      .from(".hero-sub", { y: 20, opacity: 0, duration: 0.55, ease: "power3.out" }, "-=0.4")
+      .from(".hero-ctas", { y: 18, opacity: 0, duration: 0.5, ease: "power3.out" }, "-=0.35")
+      .from(".hero-stats", { y: 18, opacity: 0, duration: 0.5, ease: "power3.out" }, "-=0.3")
+      .from(".hero-card", { scale: 0.92, opacity: 0, rotation: 5, duration: 0.75, ease: "back.out(1.4)" }, "-=0.55");
+    }
 
-    // 3. Gentle Float on Macro/Price Badges
+    // Reveal when the 8s video finishes
+    introVideo.addEventListener('ended', revealSite);
+
+    // Allow manual skip anytime
+    skipBtn.addEventListener('click', revealSite);
+
+    // Fallback: if video fails to load or autoplay is blocked, reveal after 8.5s (or 0.5s if errored)
+    introVideo.addEventListener('error', () => setTimeout(revealSite, 500));
+    setTimeout(revealSite, 8500);
+
+    // 2. Gentle Float on Macro/Price Badges
     gsap.to(".floating-badge", {
       y: -7,
       duration: 2.3,
@@ -521,7 +568,7 @@
       stagger: 0.4
     });
 
-    // 4. Menu Cards Scroll Reveal
+    // 3. Menu Cards Scroll Reveal
     gsap.from(".menu-card", {
       scrollTrigger: {
         trigger: "#menu",
@@ -534,7 +581,7 @@
       ease: "power3.out"
     });
 
-    // 5. Story Section Reveal
+    // 4. Story Section Reveal
     gsap.from(".story-reveal", {
       scrollTrigger: {
         trigger: "#story",
@@ -547,7 +594,7 @@
       ease: "power3.out"
     });
 
-    // 6. Promo Banner Pop
+    // 5. Promo Banner Pop
     gsap.from(".promo-card", {
       scrollTrigger: {
         trigger: "#free-meal",
