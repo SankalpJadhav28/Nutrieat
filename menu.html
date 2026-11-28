@@ -3,7 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Menu & Macro Builder — Nutrieat</title>
+  <title>Menu & Order — Nutrieat</title>
+  <meta name="description" content="Fresh, nutritious, delicious oats bowls, whey protein smoothies, and peanut butter sandwiches starting at ₹70. Tilak Nagar, Sahyadri Ground, Mumbai." />
+  <meta property="og:title" content="Nutrieat — Eat Good. Feel Good." />
+  <meta property="og:description" content="Wholesome oats bowls & whey protein smoothies by friends in our 20s. Visit us at Sahyadri Ground, Tilak Nagar (7 AM – 11 AM)." />
+  <meta property="og:image" content="assets/logo1.png" />
+  <meta property="og:type" content="website" />
   <link rel="icon" href="assets/logo1.png" type="image/png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,7 +17,6 @@
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
   <script>
     tailwind.config = {
@@ -55,7 +59,7 @@
 <body class="font-sans linen-texture antialiased selection:bg-sage selection:text-espresso">
 
   <!-- NAVBAR -->
-  <header class="fixed top-0 left-0 right-0 z-50 px-3 sm:px-6 py-3 sm:py-4">
+  <header class="fixed top-0 left-0 right-0 z-40 px-3 sm:px-6 py-3 sm:py-4">
     <div class="max-w-6xl mx-auto bg-linen/90 backdrop-blur-md border border-cocoa/15 rounded-full px-3.5 sm:px-7 py-2 sm:py-2.5 flex items-center justify-between gap-2 shadow-sm">
       <a href="index.html" class="flex items-center gap-2 sm:gap-2.5 group min-w-0">
         <img src="assets/logo1.png" alt="Nutrieat Logo" class="h-8 sm:h-10 w-auto object-contain shrink-0 transition-transform duration-300 group-hover:rotate-6" />
@@ -67,259 +71,194 @@
 
       <nav class="hidden md:flex items-center gap-8 text-sm font-bold text-cocoa/85">
         <a href="index.html" class="hover:text-leaf transition-colors">Home</a>
-        <a href="menu.html" class="text-leaf underline decoration-2 underline-offset-4">Menu & Builder</a>
+        <a href="menu.html" class="text-leaf underline decoration-2 underline-offset-4">Menu & Order</a>
         <a href="story.html" class="hover:text-leaf transition-colors">Our Story & Stall</a>
       </nav>
 
-      <a href="https://instagram.com/nutrieatofficial" target="_blank" class="magnetic-btn shrink-0 bg-sage text-espresso text-[10px] sm:text-xs font-bold uppercase tracking-wider px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full border border-leaf/20 hover:bg-leaf hover:text-linen">
-        <span class="sm:hidden">Instagram ↗</span>
-        <span class="hidden sm:inline">@nutrieatofficial</span>
-      </a>
+      <!-- Open Cart Button in Navbar -->
+      <button type="button" onclick="openCart()" class="magnetic-btn shrink-0 bg-leaf text-linen text-xs font-bold uppercase tracking-wider px-4 sm:px-5 py-2 sm:py-2.5 rounded-full hover:bg-espresso flex items-center gap-2 shadow-sm">
+        <span>Bag</span>
+        <span id="nav-cart-count" class="bg-sage text-espresso font-display font-bold px-2 py-0.5 rounded-full text-xs">0</span>
+      </button>
     </div>
 
     <nav class="md:hidden max-w-xs mx-auto mt-2 bg-linen/95 backdrop-blur-md border border-cocoa/15 rounded-full px-4 py-1.5 flex items-center justify-around text-xs font-bold text-cocoa shadow-sm">
       <a href="index.html" class="hover:text-leaf px-2 py-0.5">Home</a>
       <span class="text-cocoa/25">•</span>
-      <a href="menu.html" class="text-leaf px-2 py-0.5">Menu & Builder</a>
+      <a href="menu.html" class="text-leaf px-2 py-0.5">Menu & Order</a>
       <span class="text-cocoa/25">•</span>
       <a href="story.html" class="hover:text-leaf px-2 py-0.5">Our Story</a>
     </nav>
   </header>
 
-  <!-- MENU HEADER & GRID -->
-  <main class="pt-36 sm:pt-32 pb-20 px-6 max-w-6xl mx-auto">
+  <!-- MENU GRID -->
+  <main class="pt-36 sm:pt-32 pb-32 px-6 max-w-6xl mx-auto">
     <div class="text-center max-w-2xl mx-auto mb-14 page-enter">
       <div class="inline-flex items-center gap-2 bg-sage/50 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest text-leaf mb-3">
-        Freshly Prepped Daily
+        Tap Any Item to Customize & Add
       </div>
       <h1 class="font-display font-bold text-4xl sm:text-6xl text-cocoa tracking-tight mb-3">OUR MENU & MACROS</h1>
       <p class="text-cocoa/85 font-semibold text-base">
-        Chocolate or classic—bowls, sandwiches, and high-protein shakes with transparent calories, protein, and fats.
+        Click on any bowl, smoothie, or sandwich to view full ingredients, customize add-ons, and build your WhatsApp pre-order bag.
       </p>
     </div>
 
-    <!-- 5-Card Menu Grid -->
-    <div class="grid md:grid-cols-2 gap-8 mb-24">
-      
-      <!-- 1. CLASSIC HONEY & NUT OATS (NON-CHOCOLATE) -->
-      <div class="menu-card bg-linen border-2 border-cocoa/15 rounded-[2rem] p-7 shadow-sm flex flex-col justify-between hover:border-leaf/50 transition-colors">
-        <div>
-          <div class="flex items-center justify-between gap-4 mb-2">
-            <h2 class="font-display font-bold text-2xl text-cocoa tracking-tight">CLASSIC HONEY & NUT OATS</h2>
-            <span class="bg-sage text-espresso font-display font-bold text-xl px-5 py-1 rounded-full shrink-0">₹80</span>
-          </div>
-          <p class="text-cocoa/85 font-semibold text-sm mb-4">Zero chocolate—creamy rolled oats topped with fresh banana slices, crunchy almonds, and pure honey.</p>
+    <!-- Dynamic Menu Cards Container (3-col on large screens, 2-col on tablet) -->
+    <div id="menu-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+  </main>
+
+  <!-- FLOATING BOTTOM CART BAR (Appears when bag has >= 1 item) -->
+  <div id="floating-cart-bar" class="fixed bottom-5 left-4 right-4 z-40 max-w-lg mx-auto hidden">
+    <button type="button" onclick="openCart()" class="w-full bg-espresso text-linen rounded-full px-6 py-4 shadow-2xl border-2 border-sage/30 flex items-center justify-between hover:bg-leaf transition-colors">
+      <div class="flex items-center gap-3">
+        <span id="float-count" class="bg-sage text-espresso font-display font-bold w-8 h-8 rounded-full flex items-center justify-center text-sm">0</span>
+        <div class="text-left leading-tight">
+          <span class="font-display font-bold text-base block">View Order Bag</span>
+          <span id="float-macros" class="text-[11px] text-kraft font-bold">0g Protein total</span>
         </div>
-        <div class="relative pt-2">
-          <div class="flex justify-end mb-2">
-            <span class="bg-sand text-cocoa font-bold text-xs px-4 py-1.5 rounded-2xl text-center leading-tight shadow-sm">300 kcal<br>9g P | 6g F</span>
+      </div>
+      <div class="font-display font-bold text-xl text-sage">
+        ₹<span id="float-total">0</span> →
+      </div>
+    </button>
+  </div>
+
+  <!-- ========================================================= -->
+  <!-- ELABORATED ITEM DETAIL MODAL                              -->
+  <!-- ========================================================= -->
+  <div id="item-modal" class="fixed inset-0 z-50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
+    <!-- Backdrop -->
+    <div onclick="closeItemModal()" class="fixed inset-0 bg-espresso/65 backdrop-blur-sm"></div>
+
+    <!-- Modal Content Card -->
+    <div id="item-modal-card" class="relative z-10 bg-linen w-full max-w-2xl max-h-[92vh] overflow-y-auto rounded-t-[2.25rem] sm:rounded-[2.25rem] border-2 border-cocoa/15 shadow-2xl p-6 sm:p-8">
+      <!-- Close Button -->
+      <button type="button" onclick="closeItemModal()" class="sticky top-0 float-right bg-parchment hover:bg-sand text-cocoa w-9 h-9 rounded-full font-bold flex items-center justify-center border border-cocoa/15 shadow-sm">
+        ✕
+      </button>
+
+      <!-- Image & Badge -->
+      <div class="bg-parchment/70 rounded-3xl overflow-hidden h-56 sm:h-64 mb-6 relative">
+        <span id="modal-tag" class="hidden absolute top-3 left-3 z-10 bg-leaf text-linen text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-sm"></span>
+        <img id="modal-img" src="" alt="" class="w-full h-full object-cover" />
+      </div>
+
+      <!-- Title & Base Price -->
+      <div class="flex items-start justify-between gap-4 mb-2">
+        <h2 id="modal-title" class="font-display font-bold text-2xl sm:text-3xl text-cocoa leading-tight"></h2>
+        <span class="bg-sage text-espresso font-display font-bold text-xl px-4 py-1 rounded-full shrink-0">
+          ₹<span id="modal-base-price">0</span>
+        </span>
+      </div>
+
+      <p id="modal-desc" class="text-cocoa/85 font-semibold text-sm sm:text-base mb-5"></p>
+
+      <!-- Ingredients / What's Inside -->
+      <div class="mb-6">
+        <h3 class="text-xs font-bold uppercase tracking-wider text-cocoa/70 mb-2">What's Inside</h3>
+        <div id="modal-ingredients" class="flex flex-wrap gap-2"></div>
+      </div>
+
+      <!-- Live Macros Breakdown -->
+      <div class="mb-6">
+        <h3 class="text-xs font-bold uppercase tracking-wider text-cocoa/70 mb-2">Live Nutrition Breakdown (Per Serving)</h3>
+        <div class="grid grid-cols-4 gap-2 text-center">
+          <div class="bg-sand/70 p-2.5 rounded-2xl">
+            <div class="font-display font-bold text-lg text-cocoa"><span id="modal-kcal">0</span></div>
+            <div class="text-[10px] font-bold uppercase text-cocoa/75">Kcal</div>
           </div>
-          <div class="aspect-[16/11] rounded-2xl overflow-hidden flex items-center justify-center">
-            <img src="https://images.unsplash.com/photo-1517673132405-a56a62b18caf?auto=format&fit=crop&w=800&q=80" alt="Classic Honey & Nut Oats" class="dish-img w-full h-full object-contain rounded-2xl drop-shadow-md">
+          <div class="bg-sage/75 p-2.5 rounded-2xl border border-leaf/25">
+            <div class="font-display font-bold text-lg text-leaf"><span id="modal-protein">0</span>g</div>
+            <div class="text-[10px] font-bold uppercase text-espresso">Protein</div>
+          </div>
+          <div class="bg-sand/70 p-2.5 rounded-2xl">
+            <div class="font-display font-bold text-lg text-cocoa"><span id="modal-carbs">0</span>g</div>
+            <div class="text-[10px] font-bold uppercase text-cocoa/75">Carbs</div>
+          </div>
+          <div class="bg-sand/70 p-2.5 rounded-2xl">
+            <div class="font-display font-bold text-lg text-cocoa"><span id="modal-fats">0</span>g</div>
+            <div class="text-[10px] font-bold uppercase text-cocoa/75">Fats</div>
           </div>
         </div>
       </div>
 
-      <!-- 2. CHOCO PEANUT OATS BOWL -->
-      <div class="menu-card bg-linen border-2 border-cocoa/15 rounded-[2rem] p-7 shadow-sm flex flex-col justify-between hover:border-leaf/50 transition-colors">
-        <div>
-          <div class="flex items-center justify-between gap-4 mb-2">
-            <h2 class="font-display font-bold text-2xl text-cocoa tracking-tight">CHOCO PEANUT OATS BOWL</h2>
-            <span class="bg-sage text-espresso font-display font-bold text-xl px-5 py-1 rounded-full shrink-0">₹80</span>
-          </div>
-          <p class="text-cocoa/85 font-semibold text-sm mb-4">Rich dark chocolate drizzle over creamy oats, sliced bananas, and roasted peanut butter.</p>
-        </div>
-        <div class="relative pt-2">
-          <div class="flex justify-end mb-2">
-            <span class="bg-sand text-cocoa font-bold text-xs px-4 py-1.5 rounded-2xl text-center leading-tight shadow-sm">310 kcal<br>9g P | 7g F</span>
-          </div>
-          <div class="aspect-[16/11] rounded-2xl overflow-hidden flex items-center justify-center">
-            <img src="assets/basic_oats.png" alt="Choco Peanut Oats Bowl" class="dish-img w-full h-full object-contain drop-shadow-md">
-          </div>
-        </div>
+      <!-- Optional Add-ons -->
+      <div class="mb-6">
+        <h3 class="text-xs font-bold uppercase tracking-wider text-cocoa/70 mb-2.5">Boost With Add-Ons (Optional)</h3>
+        <div id="modal-addons" class="grid sm:grid-cols-2 gap-2.5"></div>
       </div>
 
-      <!-- 3. HIGH PROTEIN OATS BOWL -->
-      <div class="menu-card bg-linen border-2 border-leaf/35 rounded-[2rem] p-7 shadow-sm flex flex-col justify-between relative">
-        <div class="absolute -top-3 left-7 bg-leaf text-linen text-[11px] font-bold uppercase tracking-wider px-3.5 py-0.5 rounded-full">Bestseller</div>
-        <div>
-          <div class="flex items-center justify-between gap-4 mb-2">
-            <h2 class="font-display font-bold text-2xl text-cocoa tracking-tight">HIGH PROTEIN OATS BOWL</h2>
-            <span class="bg-sage text-espresso font-display font-bold text-xl px-5 py-1 rounded-full shrink-0">₹100</span>
-          </div>
-          <p class="text-cocoa/85 font-semibold text-sm mb-4">Power-packed breakfast loaded with protein oats, nuts, fruits, and peanut butter.</p>
+      <!-- Quantity + Add to Cart Bar -->
+      <div class="pt-4 border-t border-cocoa/15 flex items-center gap-3">
+        <!-- Qty Stepper -->
+        <div class="flex items-center bg-parchment border border-cocoa/15 rounded-full px-2 py-1.5 shrink-0">
+          <button type="button" onclick="changeModalQty(-1)" class="w-8 h-8 rounded-full font-display font-bold text-lg text-cocoa hover:bg-sand">−</button>
+          <span id="modal-qty" class="w-8 text-center font-display font-bold text-base text-espresso">1</span>
+          <button type="button" onclick="changeModalQty(1)" class="w-8 h-8 rounded-full font-display font-bold text-lg text-cocoa hover:bg-sand">+</button>
         </div>
-        <div class="relative pt-2">
-          <div class="flex justify-end mb-2">
-            <span class="bg-sand text-cocoa font-bold text-xs px-4 py-1.5 rounded-2xl text-center leading-tight shadow-sm">420 kcal<br>21g P | 9g F</span>
-          </div>
-          <div class="aspect-[16/11] rounded-2xl overflow-hidden flex items-center justify-center">
-            <img src="assets/high_protein.png" alt="High Protein Oats Bowl" class="dish-img w-full h-full object-contain drop-shadow-md">
-          </div>
-        </div>
-      </div>
 
-      <!-- 4. WHEY PROTEIN SMOOTHIE -->
-      <div class="menu-card bg-linen border-2 border-leaf/35 rounded-[2rem] p-7 shadow-sm flex flex-col justify-between relative hover:border-leaf/50 transition-colors">
-        <div class="absolute -top-3 left-7 bg-kraft text-espresso text-[11px] font-bold uppercase tracking-wider px-3.5 py-0.5 rounded-full">New Drop</div>
-        <div>
-          <div class="flex items-center justify-between gap-4 mb-2">
-            <h2 class="font-display font-bold text-2xl text-cocoa tracking-tight">WHEY PROTEIN SMOOTHIE</h2>
-            <span class="bg-sage text-espresso font-display font-bold text-xl px-5 py-1 rounded-full shrink-0">₹110</span>
-          </div>
-          <p class="text-cocoa/85 font-semibold text-sm mb-4">Thick, chilled post-workout shake blended with a full scoop of whey, banana, and peanut butter.</p>
-        </div>
-        <div class="relative pt-2">
-          <div class="flex justify-end mb-2">
-            <span class="bg-sand text-cocoa font-bold text-xs px-4 py-1.5 rounded-2xl text-center leading-tight shadow-sm">340 kcal<br>26g P | 5g F</span>
-          </div>
-          <div class="aspect-[16/11] rounded-2xl overflow-hidden flex items-center justify-center">
-            <img src="https://images.unsplash.com/photo-1553530666-ba11a7da3888?auto=format&fit=crop&w=800&q=80" alt="Whey Protein Smoothie" class="dish-img w-full h-full object-contain rounded-2xl drop-shadow-md">
-          </div>
-        </div>
-      </div>
-
-      <!-- 5. PEANUT BUTTER SANDWICH -->
-      <div class="menu-card md:col-span-2 md:max-w-xl md:mx-auto w-full bg-linen border-2 border-cocoa/15 rounded-[2rem] p-7 shadow-sm flex flex-col justify-between hover:border-leaf/50 transition-colors">
-        <div>
-          <div class="flex items-center justify-between gap-4 mb-2">
-            <h2 class="font-display font-bold text-2xl text-cocoa tracking-tight">PEANUT BUTTER SANDWICH</h2>
-            <span class="bg-sage text-espresso font-display font-bold text-xl px-5 py-1 rounded-full shrink-0">₹70</span>
-          </div>
-          <p class="text-cocoa/85 font-semibold text-sm mb-4">Energy-packed bite with toasted multigrain bread, creamy peanut butter, and bananas.</p>
-        </div>
-        <div class="relative pt-2">
-          <div class="flex justify-end mb-2">
-            <span class="bg-sand text-cocoa font-bold text-xs px-4 py-1.5 rounded-2xl text-center leading-tight shadow-sm">380 kcal<br>12g P | 6g F</span>
-          </div>
-          <div class="aspect-[16/11] rounded-2xl overflow-hidden flex items-center justify-center">
-            <img src="assets/peanut_butter.png" alt="Peanut Butter Sandwich" class="dish-img w-full h-full object-contain drop-shadow-md">
-          </div>
-        </div>
+        <!-- Add to Bag CTA -->
+        <button type="button" onclick="addCurrentItemToCart()" class="flex-1 bg-leaf text-linen font-display font-bold text-base py-3.5 px-5 rounded-full hover:bg-espresso transition-colors shadow-md flex items-center justify-between">
+          <span>Add to Bag</span>
+          <span>₹<span id="modal-total-price">0</span></span>
+        </button>
       </div>
     </div>
+  </div>
 
-    <!-- FEATURE 1: INTERACTIVE MACRO & PRICE CALCULATOR -->
-    <section id="calculator" class="bg-parchment/90 border-2 border-cocoa/15 rounded-[2.5rem] p-7 sm:p-12 shadow-sm">
-      <div class="text-center max-w-xl mx-auto mb-10">
-        <span class="inline-block bg-sage px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest text-espresso mb-2">Custom Fuel Builder</span>
-        <h2 class="font-display font-bold text-3xl sm:text-4xl text-cocoa">BUILD YOUR BOWL OR SHAKE</h2>
-        <p class="text-cocoa/80 text-sm sm:text-base font-semibold mt-1">Pick a base, stack your toppings, and see exact macros + price live.</p>
+  <!-- ========================================================= -->
+  <!-- SLIDE-OVER CART DRAWER & WHATSAPP CHECKOUT                -->
+  <!-- ========================================================= -->
+  <div id="cart-drawer" class="fixed inset-0 z-50 hidden">
+    <div onclick="closeCart()" class="fixed inset-0 bg-espresso/65 backdrop-blur-sm"></div>
+
+    <div id="cart-panel" class="fixed top-0 right-0 bottom-0 w-full max-w-md bg-linen border-l-2 border-cocoa/15 shadow-2xl flex flex-col justify-between p-6 z-10">
+      <!-- Drawer Header -->
+      <div class="flex items-center justify-between border-b border-cocoa/15 pb-4">
+        <div>
+          <span class="text-[10px] font-bold uppercase tracking-widest text-leaf">Tilak Nagar Stall</span>
+          <h2 class="font-display font-bold text-2xl text-cocoa">Your Order Bag</h2>
+        </div>
+        <button type="button" onclick="closeCart()" class="bg-parchment hover:bg-sand text-cocoa w-9 h-9 rounded-full font-bold flex items-center justify-center border border-cocoa/15">✕</button>
       </div>
 
-      <div class="grid lg:grid-cols-12 gap-8 items-start">
-        <div class="lg:col-span-7 space-y-6">
-          <div>
-            <label class="block text-xs font-bold uppercase tracking-wider text-cocoa/80 mb-3">1. Choose Your Base</label>
-            <div class="grid sm:grid-cols-2 gap-2.5">
-              <button type="button" data-name="Classic Honey & Nut Oats" data-price="80" data-kcal="300" data-p="9" data-f="6" class="base-btn text-left p-3.5 rounded-2xl border-2 border-leaf bg-sage/40 transition-all">
-                <div class="font-display font-bold text-sm text-cocoa">Classic Honey Oats</div>
-                <div class="text-xs font-bold text-leaf">₹80 • 9g Protein</div>
-              </button>
-              <button type="button" data-name="Choco Peanut Oats" data-price="80" data-kcal="310" data-p="9" data-f="7" class="base-btn text-left p-3.5 rounded-2xl border-2 border-cocoa/15 bg-linen hover:border-leaf/50 transition-all">
-                <div class="font-display font-bold text-sm text-cocoa">Choco Peanut Oats</div>
-                <div class="text-xs font-bold text-cocoa/70">₹80 • 9g Protein</div>
-              </button>
-              <button type="button" data-name="High Protein Oats Bowl" data-price="100" data-kcal="420" data-p="21" data-f="9" class="base-btn text-left p-3.5 rounded-2xl border-2 border-cocoa/15 bg-linen hover:border-leaf/50 transition-all">
-                <div class="font-display font-bold text-sm text-cocoa">High Protein Oats</div>
-                <div class="text-xs font-bold text-cocoa/70">₹100 • 21g Protein</div>
-              </button>
-              <button type="button" data-name="Whey Protein Smoothie" data-price="110" data-kcal="340" data-p="26" data-f="5" class="base-btn text-left p-3.5 rounded-2xl border-2 border-cocoa/15 bg-linen hover:border-leaf/50 transition-all">
-                <div class="font-display font-bold text-sm text-cocoa">Whey Smoothie</div>
-                <div class="text-xs font-bold text-cocoa/70">₹110 • 26g Protein</div>
-              </button>
-            </div>
-          </div>
+      <!-- Cart Items List -->
+      <div id="cart-items-container" class="flex-1 overflow-y-auto py-4 space-y-3"></div>
 
-          <div>
-            <label class="block text-xs font-bold uppercase tracking-wider text-cocoa/80 mb-3">2. Boost Your Macros (Optional)</label>
-            <div class="grid sm:grid-cols-2 gap-2.5">
-              <button type="button" data-name="Extra Whey Scoop" data-price="40" data-kcal="120" data-p="24" data-f="1" class="addon-btn flex items-center justify-between p-3.5 rounded-2xl border-2 border-cocoa/15 bg-linen hover:border-leaf/50 transition-all text-left">
-                <div>
-                  <div class="font-bold text-sm text-cocoa">+1 Scoop Whey</div>
-                  <div class="text-[11px] font-bold text-leaf">+24g P • +120 kcal</div>
-                </div>
-                <span class="font-display font-bold text-sm bg-sand px-2.5 py-1 rounded-full">+₹40</span>
-              </button>
-              <button type="button" data-name="Extra Peanut Butter" data-price="15" data-kcal="95" data-p="4" data-f="8" class="addon-btn flex items-center justify-between p-3.5 rounded-2xl border-2 border-cocoa/15 bg-linen hover:border-leaf/50 transition-all text-left">
-                <div>
-                  <div class="font-bold text-sm text-cocoa">Extra Peanut Butter</div>
-                  <div class="text-[11px] font-bold text-leaf">+4g P • +95 kcal</div>
-                </div>
-                <span class="font-display font-bold text-sm bg-sand px-2.5 py-1 rounded-full">+₹15</span>
-              </button>
-              <button type="button" data-name="Almonds & Cashews" data-price="20" data-kcal="85" data-p="3" data-f="7" class="addon-btn flex items-center justify-between p-3.5 rounded-2xl border-2 border-cocoa/15 bg-linen hover:border-leaf/50 transition-all text-left">
-                <div>
-                  <div class="font-bold text-sm text-cocoa">Almonds & Cashews</div>
-                  <div class="text-[11px] font-bold text-leaf">+3g P • +85 kcal</div>
-                </div>
-                <span class="font-display font-bold text-sm bg-sand px-2.5 py-1 rounded-full">+₹20</span>
-              </button>
-              <button type="button" data-name="Chia & Pumpkin Seeds" data-price="15" data-kcal="65" data-p="3" data-f="4" class="addon-btn flex items-center justify-between p-3.5 rounded-2xl border-2 border-cocoa/15 bg-linen hover:border-leaf/50 transition-all text-left">
-                <div>
-                  <div class="font-bold text-sm text-cocoa">Chia & Pumpkin Seeds</div>
-                  <div class="text-[11px] font-bold text-leaf">+3g P • +65 kcal</div>
-                </div>
-                <span class="font-display font-bold text-sm bg-sand px-2.5 py-1 rounded-full">+₹15</span>
-              </button>
-            </div>
-          </div>
+      <!-- Checkout Summary & WhatsApp Send -->
+      <div id="cart-footer" class="border-t border-cocoa/15 pt-4 space-y-3 hidden">
+        <div class="flex justify-between text-xs font-bold text-leaf bg-sage/40 px-3.5 py-2 rounded-xl">
+          <span>Combined Order Nutrition:</span>
+          <span><span id="cart-total-kcal">0</span> kcal • <span id="cart-total-protein">0</span>g Protein</span>
         </div>
 
-        <div class="lg:col-span-5 bg-linen border-2 border-leaf/30 rounded-3xl p-6 sm:p-7 shadow-md">
-          <div class="flex items-center justify-between border-b border-cocoa/10 pb-4 mb-5">
-            <div>
-              <span class="text-[11px] font-bold uppercase tracking-widest text-leaf">Your Custom Order</span>
-              <h3 id="calc-title" class="font-display font-bold text-xl text-cocoa leading-snug">Classic Honey & Nut Oats</h3>
-            </div>
-            <div class="bg-sage text-espresso font-display font-bold text-2xl px-4 py-1.5 rounded-full shrink-0">
-              ₹<span id="calc-price">80</span>
-            </div>
-          </div>
-
-          <p id="calc-addons-list" class="text-xs font-semibold text-cocoa/75 mb-5 min-h-[1.25rem]">No extra toppings selected</p>
-
-          <div class="grid grid-cols-3 gap-2.5 text-center mb-6">
-            <div class="bg-sand/70 p-3 rounded-2xl">
-              <div class="font-display font-bold text-xl text-cocoa"><span id="calc-kcal">300</span></div>
-              <div class="text-[11px] font-bold uppercase text-cocoa/75">Calories</div>
-            </div>
-            <div class="bg-sage/70 p-3 rounded-2xl border border-leaf/20">
-              <div class="font-display font-bold text-xl text-leaf"><span id="calc-protein">9</span>g</div>
-              <div class="text-[11px] font-bold uppercase text-espresso">Protein</div>
-            </div>
-            <div class="bg-sand/70 p-3 rounded-2xl">
-              <div class="font-display font-bold text-xl text-cocoa"><span id="calc-fats">6</span>g</div>
-              <div class="text-[11px] font-bold uppercase text-cocoa/75">Fats</div>
-            </div>
-          </div>
-
-         <!-- Pickup Time & WhatsApp Pre-Order -->
-          <div class="space-y-3">
-            <div class="flex items-center justify-between bg-parchment px-3.5 py-2 rounded-2xl border border-cocoa/10">
-              <label for="pickup-time" class="text-xs font-bold text-cocoa/80">Pickup in:</label>
-              <select id="pickup-time" class="bg-transparent text-xs font-bold text-leaf focus:outline-none cursor-pointer">
-                <option value="10 mins">10 mins</option>
-                <option value="15 mins" selected>15 mins</option>
-                <option value="30 mins">30 mins</option>
-                <option value="At the stall now">At the stall now</option>
-              </select>
-            </div>
-
-            <a
-              id="whatsapp-order-btn"
-              href="#"
-              target="_blank"
-              class="magnetic-btn w-full flex items-center justify-center gap-2 bg-leaf text-linen font-display font-bold text-base py-3.5 px-6 rounded-full hover:bg-espresso shadow-md"
-            >
-              <span>Pre-Order on WhatsApp</span>
-              <span>↗</span>
-            </a>
-          </div>
+        <div class="flex items-center justify-between bg-parchment px-3.5 py-2.5 rounded-xl border border-cocoa/10">
+          <label for="cart-pickup" class="text-xs font-bold text-cocoa">Pickup Time:</label>
+          <select id="cart-pickup" onchange="updateWhatsAppCheckoutLink()" class="bg-transparent text-xs font-bold text-leaf focus:outline-none cursor-pointer">
+            <option value="In 10 mins">In 10 mins</option>
+            <option value="In 15 mins" selected>In 15 mins</option>
+            <option value="In 30 mins">In 30 mins</option>
+            <option value="At the stall right now">At the stall right now</option>
+          </select>
         </div>
+
+        <div class="flex items-center justify-between px-1">
+          <span class="font-bold text-sm text-cocoa">Total Payable at Stall</span>
+          <span class="font-display font-bold text-2xl text-espresso">₹<span id="cart-grand-total">0</span></span>
+        </div>
+
+        <a
+          id="cart-whatsapp-btn"
+          href="#"
+          target="_blank"
+          class="w-full flex items-center justify-center gap-2 bg-leaf text-linen font-display font-bold text-base py-4 px-6 rounded-full hover:bg-espresso transition-colors shadow-lg"
+        >
+          <span>Send Complete Order on WhatsApp</span>
+          <span>↗</span>
+        </a>
       </div>
-    </section>
-  </main>
+    </div>
+  </div>
 
   <!-- FOOTER -->
   <footer class="bg-espresso text-linen py-10 px-6">
@@ -327,90 +266,375 @@
       <div>© 2026 NUTRIEAT • EAT GOOD. FEEL GOOD.</div>
       <div class="flex gap-6">
         <a href="index.html" class="hover:text-kraft">Home</a>
-        <a href="menu.html" class="hover:text-kraft">Menu</a>
+        <a href="menu.html" class="hover:text-kraft">Menu & Order</a>
         <a href="story.html" class="hover:text-kraft">Our Story</a>
       </div>
     </div>
   </footer>
 
- <script>
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.from(".page-enter", { y: 25, opacity: 0, duration: 0.65, ease: "power3.out" });
-    gsap.from(".menu-card", { y: 35, opacity: 0, duration: 0.6, stagger: 0.12, ease: "power3.out" });
-
+  <script>
     // REPLACE WITH YOUR STALL WHATSAPP NUMBER (91 + 10-digit mobile number)
     const STALL_WHATSAPP = "917208258069";
 
-    const baseBtns = document.querySelectorAll('.base-btn');
-    const addonBtns = document.querySelectorAll('.addon-btn');
-    const pickupSelect = document.getElementById('pickup-time');
-    const waOrderBtn = document.getElementById('whatsapp-order-btn');
+    // MENU DATA (Includes full ingredients & macros for the elaborated view)
+    const MENU_ITEMS = [
+      {
+        id: 'classic-oats',
+        name: 'CLASSIC HONEY & NUT OATS',
+        price: 80,
+        kcal: 300,
+        protein: 9,
+        carbs: 48,
+        fats: 6,
+        tag: 'Non-Chocolate',
+        shortDesc: 'Zero chocolate—creamy rolled oats topped with fresh banana slices, crunchy almonds, and pure honey.',
+        fullDesc: 'Made for those who love clean, classic flavors without chocolate. Slow-soaked rolled oats topped with ripe Robusta banana coins, roasted California almonds, and a drizzle of raw honey.',
+        ingredients: ['Rolled Oats', 'Toned Milk', 'Fresh Banana', 'Roasted Almonds', 'Pure Honey', 'Cinnamon Pinch'],
+        image: 'https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?auto=format&fit=crop&w=800&q=80'
+      },
+      {
+        id: 'choco-oats',
+        name: 'CHOCO PEANUT OATS BOWL',
+        price: 80,
+        kcal: 310,
+        protein: 9,
+        carbs: 46,
+        fats: 7,
+        tag: '',
+        shortDesc: 'Rich dark chocolate drizzle over creamy oats, sliced bananas, and roasted peanut butter.',
+        fullDesc: 'Our signature everyday bowl—creamy rolled oats layered with sliced bananas, a generous dollop of unsweetened roasted peanut butter, and rich dark chocolate drizzle.',
+        ingredients: ['Rolled Oats', 'Toned Milk', 'Fresh Banana', 'Roasted Peanut Butter', 'Dark Chocolate Drizzle'],
+        image: 'assets/basic_oats.png'
+      },
+      {
+        id: 'high-protein-oats',
+        name: 'HIGH PROTEIN OATS BOWL',
+        price: 100,
+        kcal: 420,
+        protein: 21,
+        carbs: 52,
+        fats: 9,
+        tag: 'Bestseller',
+        shortDesc: 'Power-packed breakfast loaded with protein oats, ruby pomegranate pearls, nuts, and peanut butter.',
+        fullDesc: 'Built for post-workout recovery and sustained morning energy. High-protein oats topped with fresh bananas, antioxidant-rich pomegranate pearls, mixed roasted nuts, and creamy peanut butter.',
+        ingredients: ['High-Protein Oats', 'Fresh Banana', 'Pomegranate Pearls', 'Creamy Peanut Butter', 'Almonds & Cashews', 'Dark Choco Drizzle'],
+        image: 'assets/high_protein.png'
+      },
+      {
+        id: 'whey-smoothie',
+        name: 'WHEY PROTEIN SMOOTHIE',
+        price: 110,
+        kcal: 340,
+        protein: 26,
+        carbs: 36,
+        fats: 5,
+        tag: 'New Drop',
+        shortDesc: 'Thick, chilled post-workout shake blended with a full scoop of whey, banana, and peanut butter.',
+        fullDesc: 'Grab-and-go muscle fuel right outside Sahyadri Ground. Blended fresh to order with 1 full scoop of quality whey protein, chilled milk, ripe banana, and a spoon of roasted peanut butter.',
+        ingredients: ['1 Scoop Whey Protein', 'Chilled Milk', 'Ripe Banana', 'Roasted Peanut Butter', 'Rolled Oats Blend'],
+        image: 'https://images.unsplash.com/photo-1553530666-ba11a7da3888?auto=format&fit=crop&w=800&q=80'
+      },
+      {
+        id: 'pb-sandwich',
+        name: 'PEANUT BUTTER SANDWICH',
+        price: 70,
+        kcal: 380,
+        protein: 12,
+        carbs: 54,
+        fats: 6,
+        tag: '',
+        shortDesc: 'Energy-packed bite with toasted multigrain bread, creamy peanut butter, and fresh bananas.',
+        fullDesc: 'Crisp golden-toasted multigrain slices generously spread with creamy peanut butter, layered with fresh banana coins, ruby pomegranate, and a light chocolate finish.',
+        ingredients: ['Multigrain Bread', 'Creamy Peanut Butter', 'Sliced Banana', 'Pomegranate Pearls', 'Light Choco Drizzle'],
+        image: 'assets/peanut_butter.png',
+        wide: true
+      }
+    ];
 
-    let selectedBase = { name: 'Classic Honey & Nut Oats', price: 80, kcal: 300, p: 9, f: 6 };
-    let selectedAddons = new Map();
+    const ADDONS = [
+      { id: 'whey', name: '+1 Scoop Whey', price: 40, kcal: 120, protein: 24, carbs: 3, fats: 1 },
+      { id: 'pb', name: 'Extra Peanut Butter', price: 15, kcal: 95, protein: 4, carbs: 3, fats: 8 },
+      { id: 'nuts', name: 'Almonds & Cashews', price: 20, kcal: 85, protein: 3, carbs: 4, fats: 7 },
+      { id: 'seeds', name: 'Chia & Pumpkin Seeds', price: 15, kcal: 65, protein: 3, carbs: 5, fats: 4 }
+    ];
 
-    function buildWhatsAppUrl(itemName, addonsArray, totalPrice, totalP, pickup) {
-      const addonsText = addonsArray.length > 0 ? `\n• Add-ons: ${addonsArray.join(', ')}` : '';
+    // STATE
+    let activeItem = null;
+    let activeAddons = new Set();
+    let activeQty = 1;
+    let cart = JSON.parse(localStorage.getItem('nutrieat_cart') || '[]');
+
+  // 1. RENDER MENU CARDS (All images fill the rounded frame edge-to-edge)
+    function renderMenuGrid() {
+      const grid = document.getElementById('menu-grid');
+      grid.innerHTML = MENU_ITEMS.map(item => `
+        <div onclick="openItemModal('${item.id}')" class="menu-card cursor-pointer bg-linen border-2 ${item.tag === 'Bestseller' ? 'border-leaf/40' : 'border-cocoa/15'} rounded-[2rem] p-5 shadow-sm flex flex-col justify-between relative hover:border-leaf transition-all">
+          ${item.tag ? `<div class="absolute -top-3 left-5 ${item.tag === 'New Drop' ? 'bg-kraft text-espresso' : 'bg-leaf text-linen'} text-[10px] font-bold uppercase tracking-wider px-3 py-0.5 rounded-full shadow-sm">${item.tag}</div>` : ''}
+          
+          <div>
+            <!-- Full-Bleed Image Frame with Overlaid Macro Pill -->
+            <div class="relative h-52 w-full rounded-2xl overflow-hidden bg-parchment/70 mb-4">
+              <img 
+                src="${item.image}" 
+                alt="${item.name}" 
+                class="dish-img w-full h-full object-cover"
+              >
+              <span class="absolute bottom-2.5 right-2.5 bg-linen/95 backdrop-blur-sm border border-cocoa/15 text-cocoa font-bold text-[11px] px-3 py-1 rounded-xl shadow-sm leading-tight text-right">
+                ${item.kcal} kcal • <strong>${item.protein}g P</strong>
+              </span>
+            </div>
+
+            <!-- Title & Price -->
+            <div class="flex items-start justify-between gap-3 mb-1.5">
+              <h2 class="font-display font-bold text-xl text-cocoa leading-snug">${item.name}</h2>
+              <span class="bg-sage text-espresso font-display font-bold text-lg px-3.5 py-0.5 rounded-full shrink-0">₹${item.price}</span>
+            </div>
+
+            <p class="text-cocoa/80 font-semibold text-xs leading-relaxed mb-4 line-clamp-2">${item.shortDesc}</p>
+          </div>
+
+          <!-- Bottom Action Strip -->
+          <div class="pt-3 border-t border-cocoa/10 flex items-center justify-between text-xs font-bold">
+            <span class="text-cocoa/60">${item.fats}g Fats • ${item.carbs}g Carbs</span>
+            <span class="text-leaf hover:underline">Customize + Add →</span>
+          </div>
+        </div>
+      `).join('');
+    }
+    // 2. ELABORATED ITEM MODAL LOGIC
+    function openItemModal(itemId) {
+      activeItem = MENU_ITEMS.find(i => i.id === itemId);
+      if (!activeItem) return;
+
+      activeAddons.clear();
+      activeQty = 1;
+
+      document.getElementById('modal-img').src = activeItem.image;
+      document.getElementById('modal-img').alt = activeItem.name;
+      document.getElementById('modal-title').textContent = activeItem.name;
+      document.getElementById('modal-base-price').textContent = activeItem.price;
+      document.getElementById('modal-desc').textContent = activeItem.fullDesc;
+
+      const tagEl = document.getElementById('modal-tag');
+      if (activeItem.tag) {
+        tagEl.textContent = activeItem.tag;
+        tagEl.classList.remove('hidden');
+      } else {
+        tagEl.classList.add('hidden');
+      }
+
+      document.getElementById('modal-ingredients').innerHTML = activeItem.ingredients
+        .map(ing => `<span class="bg-parchment border border-cocoa/15 text-cocoa text-xs font-bold px-3 py-1 rounded-full">${ing}</span>`)
+        .join('');
+
+      document.getElementById('modal-addons').innerHTML = ADDONS.map(addon => `
+        <button type="button" id="addon-btn-${addon.id}" onclick="toggleModalAddon('${addon.id}')" class="flex items-center justify-between p-3 rounded-2xl border-2 border-cocoa/15 bg-parchment/50 hover:border-leaf/50 transition-all text-left">
+          <div>
+            <div class="font-bold text-xs sm:text-sm text-cocoa">${addon.name}</div>
+            <div class="text-[11px] font-bold text-leaf">+${addon.protein}g P • +${addon.kcal} kcal</div>
+          </div>
+          <span class="font-display font-bold text-xs bg-sand px-2.5 py-1 rounded-full">+₹${addon.price}</span>
+        </button>
+      `).join('');
+
+      updateModalSummary();
+
+      const modal = document.getElementById('item-modal');
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+      gsap.fromTo('#item-modal-card', { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: 'power3.out' });
+    }
+
+    function closeItemModal() {
+      document.getElementById('item-modal').classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    function toggleModalAddon(addonId) {
+      const btn = document.getElementById(`addon-btn-${addonId}`);
+      if (activeAddons.has(addonId)) {
+        activeAddons.delete(addonId);
+        btn.classList.remove('border-leaf', 'bg-sage/40');
+        btn.classList.add('border-cocoa/15', 'bg-parchment/50');
+      } else {
+        activeAddons.add(addonId);
+        btn.classList.remove('border-cocoa/15', 'bg-parchment/50');
+        btn.classList.add('border-leaf', 'bg-sage/40');
+      }
+      updateModalSummary();
+    }
+
+    function changeModalQty(delta) {
+      activeQty = Math.max(1, Math.min(15, activeQty + delta));
+      updateModalSummary();
+    }
+
+    function updateModalSummary() {
+      let unitPrice = activeItem.price;
+      let kcal = activeItem.kcal;
+      let protein = activeItem.protein;
+      let carbs = activeItem.carbs;
+      let fats = activeItem.fats;
+
+      activeAddons.forEach(id => {
+        const a = ADDONS.find(x => x.id === id);
+        if (a) {
+          unitPrice += a.price;
+          kcal += a.kcal;
+          protein += a.protein;
+          carbs += a.carbs;
+          fats += a.fats;
+        }
+      });
+
+      document.getElementById('modal-kcal').textContent = kcal;
+      document.getElementById('modal-protein').textContent = protein;
+      document.getElementById('modal-carbs').textContent = carbs;
+      document.getElementById('modal-fats').textContent = fats;
+      document.getElementById('modal-qty').textContent = activeQty;
+      document.getElementById('modal-total-price').textContent = unitPrice * activeQty;
+    }
+
+    // 3. CART MANAGEMENT & MULTI-ITEM WHATSAPP CHECKOUT
+    function addCurrentItemToCart() {
+      if (!activeItem) return;
+
+      const selectedAddonObjs = Array.from(activeAddons).map(id => ADDONS.find(a => a.id === id));
+      const unitPrice = activeItem.price + selectedAddonObjs.reduce((s, a) => s + a.price, 0);
+      const unitKcal = activeItem.kcal + selectedAddonObjs.reduce((s, a) => s + a.kcal, 0);
+      const unitProtein = activeItem.protein + selectedAddonObjs.reduce((s, a) => s + a.protein, 0);
+
+      cart.push({
+        uid: Date.now() + Math.random(),
+        name: activeItem.name,
+        addons: selectedAddonObjs.map(a => a.name),
+        qty: activeQty,
+        unitPrice,
+        unitKcal,
+        unitProtein
+      });
+
+      saveAndRenderCart();
+      closeItemModal();
+      openCart();
+    }
+
+    function removeCartItem(uid) {
+      cart = cart.filter(item => item.uid !== uid);
+      saveAndRenderCart();
+    }
+
+    function saveAndRenderCart() {
+      localStorage.setItem('nutrieat_cart', JSON.stringify(cart));
+
+      const totalItems = cart.reduce((sum, i) => sum + i.qty, 0);
+      const grandTotal = cart.reduce((sum, i) => sum + i.unitPrice * i.qty, 0);
+      const totalKcal = cart.reduce((sum, i) => sum + i.unitKcal * i.qty, 0);
+      const totalProtein = cart.reduce((sum, i) => sum + i.unitProtein * i.qty, 0);
+
+      // Update Navbar & Floating Bar
+      document.getElementById('nav-cart-count').textContent = totalItems;
+      const floatBar = document.getElementById('floating-cart-bar');
+      if (totalItems > 0) {
+        floatBar.classList.remove('hidden');
+        document.getElementById('float-count').textContent = totalItems;
+        document.getElementById('float-total').textContent = grandTotal;
+        document.getElementById('float-macros').textContent = `${totalKcal} kcal • ${totalProtein}g Protein total`;
+      } else {
+        floatBar.classList.add('hidden');
+      }
+
+      // Render Drawer Items
+      const container = document.getElementById('cart-items-container');
+      const footer = document.getElementById('cart-footer');
+
+      if (cart.length === 0) {
+        footer.classList.add('hidden');
+        container.innerHTML = `
+          <div class="text-center py-16 space-y-3">
+            <div class="text-4xl">🥣</div>
+            <h3 class="font-display font-bold text-xl text-cocoa">Your bag is empty</h3>
+            <p class="text-xs font-semibold text-cocoa/70 max-w-xs mx-auto">Tap any oats bowl, smoothie, or sandwich on the menu to customize it and add to your order.</p>
+          </div>
+        `;
+        return;
+      }
+
+      footer.classList.remove('hidden');
+      document.getElementById('cart-total-kcal').textContent = totalKcal;
+      document.getElementById('cart-total-protein').textContent = totalProtein;
+      document.getElementById('cart-grand-total').textContent = grandTotal;
+
+      container.innerHTML = cart.map(item => `
+        <div class="bg-parchment/80 border border-cocoa/15 rounded-2xl p-4 flex items-start justify-between gap-3">
+          <div>
+            <div class="font-display font-bold text-sm text-cocoa">${item.qty}× ${item.name}</div>
+            ${item.addons.length > 0 ? `<div class="text-[11px] font-bold text-leaf mt-0.5">+ ${item.addons.join(', ')}</div>` : ''}
+            <div class="text-[11px] font-semibold text-cocoa/70 mt-1">${item.unitKcal * item.qty} kcal • ${item.unitProtein * item.qty}g Protein</div>
+          </div>
+          <div class="text-right shrink-0">
+            <div class="font-display font-bold text-base text-espresso">₹${item.unitPrice * item.qty}</div>
+            <button type="button" onclick="removeCartItem(${item.uid})" class="text-[11px] font-bold text-promoRed hover:underline mt-1">Remove</button>
+          </div>
+        </div>
+      `).join('');
+
+      updateWhatsAppCheckoutLink();
+    }
+
+    function updateWhatsAppCheckoutLink() {
+      if (cart.length === 0) return;
+
+      const pickup = document.getElementById('cart-pickup').value;
+      const grandTotal = cart.reduce((sum, i) => sum + i.unitPrice * i.qty, 0);
+      const totalProtein = cart.reduce((sum, i) => sum + i.unitProtein * i.qty, 0);
+
+      const lines = cart.map((item, idx) => {
+        const addonStr = item.addons.length > 0 ? ` (+ ${item.addons.join(', ')})` : '';
+        return `${idx + 1}. *${item.qty}x ${item.name}*${addonStr} — ₹${item.unitPrice * item.qty}`;
+      }).join('\n');
+
       const message =
         `Hey Nutrieat! 👋 I'd like to pre-order:\n\n` +
-        `• Item: *${itemName}*${addonsText}\n` +
-        `• Macros: ${totalP}g Protein\n` +
-        `• Total: *₹${totalPrice}*\n` +
+        `${lines}\n\n` +
+        `• Total Protein: ${totalProtein}g\n` +
+        `• Grand Total: *₹${grandTotal}*\n` +
         `• Pickup: ${pickup}\n\n` +
         `Picking up at Tilak Nagar stall!`;
-      return `https://wa.me/${STALL_WHATSAPP}?text=${encodeURIComponent(message)}`;
+
+      document.getElementById('cart-whatsapp-btn').href = `https://wa.me/${STALL_WHATSAPP}?text=${encodeURIComponent(message)}`;
     }
 
-    function updateCalculator() {
-      let totalPrice = selectedBase.price, totalKcal = selectedBase.kcal, totalP = selectedBase.p, totalF = selectedBase.f;
-      selectedAddons.forEach(item => { totalPrice += item.price; totalKcal += item.kcal; totalP += item.p; totalF += item.f; });
-
-      document.getElementById('calc-title').textContent = selectedBase.name;
-      document.getElementById('calc-price').textContent = totalPrice;
-      document.getElementById('calc-kcal').textContent = totalKcal;
-      document.getElementById('calc-protein').textContent = totalP;
-      document.getElementById('calc-fats').textContent = totalF;
-
-      const addonsArray = Array.from(selectedAddons.keys());
-      const addonsListEl = document.getElementById('calc-addons-list');
-      addonsListEl.textContent = addonsArray.length === 0 ? 'No extra toppings selected' : '+ ' + addonsArray.join(', ');
-
-      // Update live WhatsApp Pre-Order URL
-      waOrderBtn.href = buildWhatsAppUrl(selectedBase.name, addonsArray, totalPrice, totalP, pickupSelect.value);
-
-      gsap.fromTo('#calc-price, #calc-protein', { scale: 1.15 }, { scale: 1, duration: 0.25, ease: 'back.out(2)' });
+    function openCart() {
+      const drawer = document.getElementById('cart-drawer');
+      drawer.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+      gsap.fromTo('#cart-panel', { xPercent: 100 }, { xPercent: 0, duration: 0.35, ease: 'power3.out' });
     }
 
-    baseBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        baseBtns.forEach(b => { b.classList.remove('border-leaf', 'bg-sage/40'); b.classList.add('border-cocoa/15', 'bg-linen'); });
-        btn.classList.remove('border-cocoa/15', 'bg-linen');
-        btn.classList.add('border-leaf', 'bg-sage/40');
-        selectedBase = { name: btn.dataset.name, price: +btn.dataset.price, kcal: +btn.dataset.kcal, p: +btn.dataset.p, f: +btn.dataset.f };
-        updateCalculator();
-      });
-    });
-
-    addonBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const name = btn.dataset.name;
-        if (selectedAddons.has(name)) {
-          selectedAddons.delete(name);
-          btn.classList.remove('border-leaf', 'bg-sage/40');
-          btn.classList.add('border-cocoa/15', 'bg-linen');
-        } else {
-          selectedAddons.set(name, { price: +btn.dataset.price, kcal: +btn.dataset.kcal, p: +btn.dataset.p, f: +btn.dataset.f });
-          btn.classList.remove('border-cocoa/15', 'bg-linen');
-          btn.classList.add('border-leaf', 'bg-sage/40');
+    function closeCart() {
+      gsap.to('#cart-panel', {
+        xPercent: 100,
+        duration: 0.25,
+        ease: 'power2.in',
+        onComplete: () => {
+          document.getElementById('cart-drawer').classList.add('hidden');
+          document.body.style.overflow = '';
         }
-        updateCalculator();
       });
-    });
+    }
 
-    pickupSelect.addEventListener('change', updateCalculator);
-
-    // Initialize default WhatsApp link on page load
-    updateCalculator();
+   // Initialize Page (Guaranteed 100% full opacity after entrance)
+    renderMenuGrid();
+    saveAndRenderCart();
+    gsap.fromTo(".page-enter", 
+      { y: 18, opacity: 0 }, 
+      { y: 0, opacity: 1, duration: 0.5, ease: "power3.out", clearProps: "all" }
+    );
+    gsap.fromTo(".menu-card", 
+      { y: 22, opacity: 0 }, 
+      { y: 0, opacity: 1, duration: 0.45, stagger: 0.06, ease: "power3.out", clearProps: "all" }
+    );
   </script>
 </body>
 </html>

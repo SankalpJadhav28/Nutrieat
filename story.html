@@ -3,7 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Our Story & Stall — Nutrieat</title>
+  <title>Our Journey — Nutrieat</title>
+  <meta name="description" content="How a group of friends in their 20s started Nutrieat outside Sahyadri Ground, Tilak Nagar, Mumbai." />
+  <meta property="og:title" content="The Nutrieat Journey — Eat Good. Feel Good." />
+  <meta property="og:description" content="From kitchen experiments to serving fresh oats bowls & whey smoothies at Tilak Nagar (7 AM – 11 AM)." />
+  <meta property="og:image" content="assets/logo1.png" />
+  <meta property="og:type" content="website" />
   <link rel="icon" href="assets/logo1.png" type="image/png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,6 +17,7 @@
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
   <script>
     tailwind.config = {
@@ -51,7 +57,7 @@
 </head>
 <body class="font-sans linen-texture antialiased selection:bg-sage selection:text-espresso">
 
-  <!-- NAVBAR -->
+  <!-- SHARED NAVBAR -->
   <header class="fixed top-0 left-0 right-0 z-50 px-3 sm:px-6 py-3 sm:py-4">
     <div class="max-w-6xl mx-auto bg-linen/90 backdrop-blur-md border border-cocoa/15 rounded-full px-3.5 sm:px-7 py-2 sm:py-2.5 flex items-center justify-between gap-2 shadow-sm">
       <a href="index.html" class="flex items-center gap-2 sm:gap-2.5 group min-w-0">
@@ -64,8 +70,8 @@
 
       <nav class="hidden md:flex items-center gap-8 text-sm font-bold text-cocoa/85">
         <a href="index.html" class="hover:text-leaf transition-colors">Home</a>
-        <a href="menu.html" class="hover:text-leaf transition-colors">Menu & Builder</a>
-        <a href="story.html" class="text-leaf underline decoration-2 underline-offset-4">Our Story & Stall</a>
+        <a href="menu.html" class="hover:text-leaf transition-colors">Menu & Order</a>
+        <a href="story.html" class="text-leaf underline decoration-2 underline-offset-4">Our Journey</a>
       </nav>
 
       <a href="https://instagram.com/nutrieatofficial" target="_blank" class="magnetic-btn shrink-0 bg-sage text-espresso text-[10px] sm:text-xs font-bold uppercase tracking-wider px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full border border-leaf/20 hover:bg-leaf hover:text-linen">
@@ -77,94 +83,208 @@
     <nav class="md:hidden max-w-xs mx-auto mt-2 bg-linen/95 backdrop-blur-md border border-cocoa/15 rounded-full px-4 py-1.5 flex items-center justify-around text-xs font-bold text-cocoa shadow-sm">
       <a href="index.html" class="hover:text-leaf px-2 py-0.5">Home</a>
       <span class="text-cocoa/25">•</span>
-      <a href="menu.html" class="hover:text-leaf px-2 py-0.5">Menu & Builder</a>
+      <a href="menu.html" class="hover:text-leaf px-2 py-0.5">Menu & Order</a>
       <span class="text-cocoa/25">•</span>
-      <a href="story.html" class="text-leaf px-2 py-0.5">Our Story</a>
+      <a href="story.html" class="text-leaf px-2 py-0.5">Our Journey</a>
     </nav>
   </header>
 
-  <main class="pt-36 sm:pt-32 pb-20 px-6 max-w-6xl mx-auto">
-    <!-- STORY HERO -->
-    <div class="grid lg:grid-cols-12 gap-12 items-center mb-24">
-      <div class="lg:col-span-6 space-y-6 story-reveal">
-        <span class="inline-block bg-sage px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest text-espresso">
-          Who's Behind Nutrieat
-        </span>
-        <h1 class="font-display font-bold text-4xl sm:text-5xl text-cocoa leading-tight">
-          Built by friends in our 20s who wanted better everyday food.
-        </h1>
-        <p class="text-cocoa/90 text-base sm:text-lg leading-relaxed font-semibold">
-          Right outside Sahyadri Ground in Tilak Nagar, we saw everyone finishing morning runs, cricket matches, and gym workouts with nowhere affordable to grab clean, high-protein fuel.
-        </p>
-        <p class="text-cocoa/85 text-base leading-relaxed font-medium">
-          So we started <strong class="text-leaf font-bold">Nutrieat</strong>—bringing real rolled oats, whey protein smoothies, creamy peanut butter, and toasted sandwiches straight to the neighborhood at honest prices.
-        </p>
-
-        <div class="grid sm:grid-cols-2 gap-4 pt-2">
-          <div class="bg-parchment p-5 rounded-2xl border border-cocoa/15">
-            <div class="font-display font-bold text-lg text-leaf mb-1">Honest Macros</div>
-            <p class="text-sm text-cocoa/85 font-medium">Exact kcal, protein, and fats calculated for every single serving.</p>
-          </div>
-          <div class="bg-parchment p-5 rounded-2xl border border-cocoa/15">
-            <div class="font-display font-bold text-lg text-leaf mb-1">Warm Street Vibe</div>
-            <p class="text-sm text-cocoa/85 font-medium">No fancy cafe markups—just fresh bowls made with care by friends.</p>
-          </div>
-        </div>
+  <main class="pt-36 sm:pt-32 pb-20 px-6 max-w-5xl mx-auto">
+    
+    <!-- JOURNEY HERO HEADER -->
+    <div class="text-center max-w-2xl mx-auto mb-20 hero-intro">
+      <div class="inline-flex items-center gap-2 bg-sage/60 border border-leaf/20 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest text-leaf mb-4">
+        Our Startup Story
       </div>
-
-      <!-- Polaroid Frames (Wired to assets/crew1.jpg!) -->
-      <div class="lg:col-span-6 grid grid-cols-2 gap-5 story-reveal">
-        <div class="bg-linen p-4 pb-6 rounded-3xl shadow-md -rotate-3 border border-cocoa/15">
-          <div class="aspect-[4/5] rounded-2xl overflow-hidden bg-sand/60 mb-3">
-            <img src="assets/crew1.jpg" alt="Nutrieat Stall & Crew" class="w-full h-full object-cover" />
-          </div>
-          <p class="font-script text-xl text-center text-cocoa">Tilak Nagar Stall</p>
-        </div>
-
-        <div class="bg-linen p-4 pb-6 rounded-3xl shadow-md rotate-3 translate-y-6 border border-cocoa/15">
-          <div class="aspect-[4/5] rounded-2xl overflow-hidden bg-sage/50 mb-3 flex items-center justify-center p-4">
-            <img src="assets/high_protein.png" alt="Freshly Prepped Bowls" class="w-full h-full object-contain" />
-          </div>
-          <p class="font-script text-xl text-center text-cocoa">Eat Good. Feel Good.</p>
-        </div>
-      </div>
+      <h1 class="font-display font-bold text-4xl sm:text-6xl text-cocoa leading-tight mb-4">
+        FROM A MORNING IDEA TO <span class="text-leaf">SAHYADRI GROUND.</span>
+      </h1>
+      <p class="text-cocoa/85 font-semibold text-base sm:text-lg leading-relaxed">
+        No big investors or fancy cloud kitchens—just friends in our 20s who wanted clean, high-protein food to be affordable and delicious every single morning.
+      </p>
     </div>
 
-    <!-- STALL TIMINGS & LOCATION CARD -->
-    <section class="bg-espresso text-linen rounded-[2.5rem] p-8 sm:p-12 grid md:grid-cols-12 gap-8 items-center">
+    <!-- ========================================================= -->
+    <!-- SCROLL-DRIVEN JOURNEY TIMELINE                            -->
+    <!-- ========================================================= -->
+    <section id="journey-timeline" class="relative mb-24">
+      
+      <!-- Vertical Track Line (Left on mobile, Center on desktop) -->
+      <div class="absolute left-5 md:left-1/2 top-0 bottom-0 w-1 bg-cocoa/10 -translate-x-1/2 rounded-full">
+        <!-- Animated Leaf-Green Progress Fill -->
+        <div id="timeline-progress" class="w-full h-0 bg-leaf rounded-full"></div>
+      </div>
+
+      <div class="space-y-16 sm:space-y-24">
+
+        <!-- CHAPTER 01 -->
+        <div class="journey-step relative grid md:grid-cols-2 gap-8 md:gap-14 items-center pl-14 md:pl-0">
+          <!-- Milestone Dot -->
+          <div class="absolute left-5 md:left-1/2 top-6 md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 w-10 h-10 rounded-full bg-leaf text-linen font-display font-bold text-sm flex items-center justify-center border-4 border-linen shadow-md z-10">
+            01
+          </div>
+
+          <!-- Left Text -->
+          <div class="md:text-right md:pr-8 space-y-3">
+            <span class="inline-block bg-parchment border border-cocoa/15 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full text-cocoa">
+              Chapter 01 • The Spark
+            </span>
+            <h2 class="font-display font-bold text-2xl sm:text-3xl text-cocoa">
+              The Post-Workout Dilemma
+            </h2>
+            <p class="text-cocoa/85 font-semibold text-sm sm:text-base leading-relaxed">
+              Every morning after running and hitting the gym around Tilak Nagar, we faced the exact same problem: either grab oily street snacks or spend ₹350+ at a trendy cafe for a simple bowl of oats.
+            </p>
+          </div>
+
+          <!-- Right Visual Card -->
+          <div class="md:pl-8">
+            <div class="bg-parchment/90 border-2 border-cocoa/15 rounded-3xl p-6 shadow-sm rotate-1">
+              <p class="font-script text-2xl text-leaf mb-2">"Why isn't clean protein fuel ₹80 instead of ₹350?"</p>
+              <p class="text-xs font-bold text-cocoa/75 leading-relaxed">
+                That single question after a morning session at Sahyadri Ground kicked off everything.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CHAPTER 02 -->
+        <div class="journey-step relative grid md:grid-cols-2 gap-8 md:gap-14 items-center pl-14 md:pl-0">
+          <div class="absolute left-5 md:left-1/2 top-6 md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 w-10 h-10 rounded-full bg-leaf text-linen font-display font-bold text-sm flex items-center justify-center border-4 border-linen shadow-md z-10">
+            02
+          </div>
+
+          <!-- Left Visual Card (Order swaps on desktop for zig-zag flow) -->
+          <div class="order-2 md:order-1 md:pr-8">
+            <div class="bg-linen border-2 border-cocoa/15 rounded-3xl p-5 shadow-sm -rotate-1 flex items-center gap-4">
+              <img src="assets/high_protein.png" alt="Recipe Testing" class="w-24 h-24 rounded-2xl object-cover shrink-0" />
+              <div>
+                <span class="text-[10px] font-bold uppercase tracking-widest text-leaf">Macro Precision</span>
+                <div class="font-display font-bold text-lg text-cocoa">Weighed & Tested</div>
+                <p class="text-xs font-semibold text-cocoa/80 mt-1">
+                  Every gram of oats, peanut butter, honey, and whey measured so you know your exact macros.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Text -->
+          <div class="order-1 md:order-2 md:pl-8 space-y-3">
+            <span class="inline-block bg-sage/60 border border-leaf/20 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full text-espresso">
+              Chapter 02 • Kitchen Trials
+            </span>
+            <h2 class="font-display font-bold text-2xl sm:text-3xl text-cocoa">
+              Dialing In Taste & Macros
+            </h2>
+            <p class="text-cocoa/85 font-semibold text-sm sm:text-base leading-relaxed">
+              We tested dozens of oat-to-milk ratios, roasted peanut butter drizzles, and multigrain sandwich combos on our friends until healthy food actually tasted like a treat.
+            </p>
+          </div>
+        </div>
+
+        <!-- CHAPTER 03 -->
+        <div class="journey-step relative grid md:grid-cols-2 gap-8 md:gap-14 items-center pl-14 md:pl-0">
+          <div class="absolute left-5 md:left-1/2 top-6 md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 w-10 h-10 rounded-full bg-leaf text-linen font-display font-bold text-sm flex items-center justify-center border-4 border-linen shadow-md z-10">
+            03
+          </div>
+
+          <!-- Left Text -->
+          <div class="md:text-right md:pr-8 space-y-3">
+            <span class="inline-block bg-kraft/50 border border-cocoa/15 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full text-cocoa">
+              Chapter 03 • Going Live
+            </span>
+            <h2 class="font-display font-bold text-2xl sm:text-3xl text-cocoa">
+              Setting Up Opposite Building No. 2
+            </h2>
+            <p class="text-cocoa/85 font-semibold text-sm sm:text-base leading-relaxed">
+              With our custom standee, fresh morning prep, and zero-pretension street energy, we opened our counter right outside Sahyadri Ground—serving walkers, cricketers, and gym regulars from 7 AM to 11 AM.
+            </p>
+          </div>
+
+          <!-- Right Polaroid Photo (Your real crew/stall photo!) -->
+          <div class="md:pl-8">
+            <div class="bg-linen p-4 pb-5 rounded-3xl shadow-md rotate-2 border border-cocoa/15 max-w-xs">
+              <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-sand/60 mb-3">
+                <img src="assets/stall.jpeg" alt="Nutrieat Stall at Tilak Nagar" class="w-full h-full object-cover" />
+              </div>
+              <p class="font-script text-xl text-center text-cocoa">Morning Rush @ Sahyadri Ground</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CHAPTER 04 -->
+        <div class="journey-step relative grid md:grid-cols-2 gap-8 md:gap-14 items-center pl-14 md:pl-0">
+          <div class="absolute left-5 md:left-1/2 top-6 md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 w-10 h-10 rounded-full bg-leaf text-linen font-display font-bold text-sm flex items-center justify-center border-4 border-linen shadow-md z-10">
+            04
+          </div>
+
+          <!-- Left Visual Card -->
+          <div class="order-2 md:order-1 md:pr-8">
+            <div class="bg-sage/45 border-2 border-leaf/25 rounded-3xl p-6 shadow-sm -rotate-1 space-y-2">
+              <div class="font-display font-bold text-lg text-leaf">Evolving With You</div>
+              <p class="text-xs font-semibold text-cocoa/85 leading-relaxed">
+                When regulars asked for a non-chocolate bowl and post-workout shakes, we added <strong>Classic Honey & Nut Oats</strong> and <strong>Whey Protein Smoothies</strong> straight to the lineup.
+              </p>
+            </div>
+          </div>
+
+          <!-- Right Text -->
+          <div class="order-1 md:order-2 md:pl-8 space-y-3">
+            <span class="inline-block bg-parchment border border-cocoa/15 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full text-cocoa">
+              Chapter 04 • What's Next
+            </span>
+            <h2 class="font-display font-bold text-2xl sm:text-3xl text-cocoa">
+              Making Everyday Health A Habit
+            </h2>
+            <p class="text-cocoa/85 font-semibold text-sm sm:text-base leading-relaxed">
+              We're just getting started. From stall fitness challenges to new high-protein drops, our goal is simple: make Nutrieat Mumbai's favorite morning ritual.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- LIVE STALL TIMINGS & LOCATION CARD                        -->
+    <!-- ========================================================= -->
+    <section class="bg-espresso text-linen rounded-[2.5rem] p-8 sm:p-12 grid md:grid-cols-12 gap-8 items-center shadow-xl">
       <div class="md:col-span-7 space-y-4">
         <div id="stall-status-badge" class="inline-flex items-center gap-2 bg-linen/10 border border-linen/15 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-sage">
           <span id="stall-status-dot" class="w-2.5 h-2.5 rounded-full bg-sage animate-pulse"></span>
           <span id="stall-status-text">Checking Stall Hours...</span>
         </div>
+
         <h2 class="font-display font-bold text-3xl sm:text-4xl leading-tight">
           TILAK NAGAR, SAHYADRI GROUND,<br>
           <span class="text-kraft">OPPOSITE BUILDING NO. 2, MUMBAI</span>
         </h2>
+
         <p class="text-sm text-linen/80 max-w-md font-medium">
-          Swing by after your morning run, gym session, or evening walk. Check our Instagram stories for daily fresh batch drops!
+          Pull up after your morning run or workout, take on our daily counter challenge, and grab a fresh bowl.
         </p>
+
         <div class="pt-2 flex flex-wrap gap-3">
           <a href="https://maps.google.com/?q=Sahyadri+Ground+Tilak+Nagar+Mumbai" target="_blank" class="bg-sage text-espresso font-bold text-sm px-6 py-3.5 rounded-full hover:bg-kraft transition-colors">
             Open in Google Maps ↗
           </a>
           <a href="menu.html" class="bg-linen/10 border border-linen/20 text-linen font-bold text-sm px-6 py-3.5 rounded-full hover:bg-linen/20 transition-colors">
-            Check Menu & Macros
+            Order From Menu →
           </a>
         </div>
       </div>
 
       <div class="md:col-span-5 bg-linen/10 border border-linen/15 rounded-3xl p-7 space-y-4">
-        <h3 class="font-display font-bold text-xl text-kraft">Daily Stall Shifts</h3>
+        <h3 class="font-display font-bold text-xl text-kraft">Daily Stall Hours</h3>
         <div class="space-y-3 text-sm">
           <div class="flex justify-between border-b border-linen/10 pb-2">
             <span class="text-linen/75 font-semibold">Morning Fuel</span>
             <span class="font-bold text-linen">7:00 AM – 11:00 AM</span>
           </div>
-       <!-- <div class="flex justify-between border-b border-linen/10 pb-2">
-            <span class="text-linen/75 font-semibold">Evening Rush</span>
-            <span class="font-bold text-linen">5:30 PM – 9:30 PM</span>
-          </div>-->
+          <div class="flex justify-between border-b border-linen/10 pb-2">
+            <span class="text-linen/75 font-semibold">Days</span>
+            <span class="font-bold text-linen">Open Daily</span>
+          </div>
           <div class="flex justify-between">
             <span class="text-linen/75 font-semibold">Live Updates</span>
             <a href="https://instagram.com/nutrieatofficial" target="_blank" class="font-bold text-sage hover:underline">@nutrieatofficial</a>
@@ -172,6 +292,7 @@
         </div>
       </div>
     </section>
+
   </main>
 
   <!-- FOOTER -->
@@ -180,52 +301,75 @@
       <div>© 2026 NUTRIEAT • EAT GOOD. FEEL GOOD.</div>
       <div class="flex gap-6">
         <a href="index.html" class="hover:text-kraft">Home</a>
-        <a href="menu.html" class="hover:text-kraft">Menu & Builder</a>
-        <a href="story.html" class="hover:text-kraft">Our Story</a>
+        <a href="menu.html" class="hover:text-kraft">Menu & Order</a>
+        <a href="story.html" class="hover:text-kraft">Our Journey</a>
       </div>
     </div>
   </footer>
 
   <script>
-    gsap.from(".story-reveal", { y: 30, opacity: 0, duration: 0.75, stagger: 0.2, ease: "power3.out" });
+    gsap.registerPlugin(ScrollTrigger);
 
-    // Live Stall Open/Closed Status (Locked to IST / Mumbai Time)
+    // 1. Hero Entrance
+    gsap.fromTo(".hero-intro",
+      { y: 22, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.6, ease: "power3.out", clearProps: "all" }
+    );
+
+    // 2. Scroll-Scrubbed Vertical Timeline Progress Line
+    gsap.to("#timeline-progress", {
+      height: "100%",
+      ease: "none",
+      scrollTrigger: {
+        trigger: "#journey-timeline",
+        start: "top 65%",
+        end: "bottom 75%",
+        scrub: 0.4
+      }
+    });
+
+    // 3. Reveal Each Journey Chapter as You Scroll
+    document.querySelectorAll(".journey-step").forEach((step) => {
+      gsap.fromTo(step,
+        { y: 35, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.65,
+          ease: "power3.out",
+          clearProps: "all",
+          scrollTrigger: {
+            trigger: step,
+            start: "top 82%"
+          }
+        }
+      );
+    });
+
+    // 4. Live Stall Status (Morning Shift: 7:00 AM – 11:00 AM IST)
     function updateStallStatus() {
-      const badge = document.getElementById('stall-status-badge');
       const dot = document.getElementById('stall-status-dot');
       const text = document.getElementById('stall-status-text');
-      if (!badge || !dot || !text) return;
+      if (!dot || !text) return;
 
-      // Get current Mumbai (IST) hour and minute
       const nowIST = new Date(new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata' }));
       const totalMins = nowIST.getHours() * 60 + nowIST.getMinutes();
-
-      // Shift 1: 7:00 AM (420) to 11:00 AM (660)
-      // Shift 2: 5:30 PM (1050) to 9:30 PM (1290)
       const isMorningOpen = totalMins >= 420 && totalMins < 660;
-      const isEveningOpen = totalMins >= 1050 && totalMins < 1290;
 
       if (isMorningOpen) {
         text.textContent = 'Open Now • Serving Morning Shift till 11:00 AM';
         dot.className = 'w-2.5 h-2.5 rounded-full bg-green-400 animate-pulse';
-      } else if (isEveningOpen) {
-        text.textContent = 'Closed for Tonight • Back Fresh at 7:00 AM';
-        dot.className = 'w-2.5 h-2.5 rounded-full bg-green-400 animate-pulse';
       } else if (totalMins < 420) {
         text.textContent = 'Prepping Fresh Oats • Opens at 7:00 AM';
         dot.className = 'w-2.5 h-2.5 rounded-full bg-kraft';
-      } else if (totalMins >= 660 && totalMins < 1050) {
-        text.textContent = 'Closed for Today • Back Fresh at 7:00 AM';
-        dot.className = 'w-2.5 h-2.5 rounded-full bg-kraft';
       } else {
-        text.textContent = 'Closed for Tonight • Back Fresh at 7:00 AM';
-        dot.className = 'w-2.5 h-2.5 rounded-full bg-red-400';
+        text.textContent = 'Wrapped for Today • Back Fresh at 7:00 AM';
+        dot.className = 'w-2.5 h-2.5 rounded-full bg-kraft';
       }
     }
 
     updateStallStatus();
     setInterval(updateStallStatus, 60000);
   </script>
-  
 </body>
 </html>
