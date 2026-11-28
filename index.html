@@ -96,6 +96,7 @@
         <a href="index.html" class="text-leaf underline decoration-2 underline-offset-4">Home</a>
         <a href="menu.html" class="hover:text-leaf transition-colors">Menu & Builder</a>
         <a href="story.html" class="hover:text-leaf transition-colors">Our Story & Stall</a>
+        
       </nav>
 
       <a href="https://instagram.com/nutrieatofficial" target="_blank" class="magnetic-btn shrink-0 bg-sage text-espresso text-[10px] sm:text-xs font-bold uppercase tracking-wider px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full border border-leaf/20 hover:bg-leaf hover:text-linen">
@@ -241,7 +242,77 @@
       </a>
     </div>
   </section>
+<!-- INSTAGRAM & PROMO VIDEO SHOWCASE (Directly on Home Page) -->
+  <section id="social" class="py-20 px-6 max-w-6xl mx-auto">
+    <div class="grid lg:grid-cols-12 gap-10 items-center mb-14">
+      
+      <!-- Left: @nutrieatofficial Intro & Bio -->
+      <div class="lg:col-span-7 bg-parchment/90 border-2 border-cocoa/15 rounded-[2.5rem] p-7 sm:p-10 shadow-sm space-y-5">
+        <div class="flex items-center gap-4">
+          <div class="p-1 rounded-full bg-gradient-to-tr from-kraft via-leaf to-sage shrink-0">
+            <div class="bg-linen p-2 rounded-full">
+              <img src="assets/logo1.png" alt="@nutrieatofficial" class="w-14 h-14 sm:w-16 sm:h-16 object-contain" />
+            </div>
+          </div>
+          <div>
+            <span class="inline-flex items-center gap-1.5 bg-sage/60 px-3 py-0.5 rounded-full text-[11px] font-bold text-leaf mb-1">
+              <span>●</span> Active Daily • Mumbai
+            </span>
+            <h2 class="font-display font-bold text-2xl sm:text-4xl text-cocoa tracking-tight">@nutrieatofficial</h2>
+          </div>
+        </div>
 
+        <p class="text-cocoa/90 font-semibold text-sm sm:text-base leading-relaxed">
+          Follow our daily morning prep outside Sahyadri Ground, behind-the-scenes clips from our 20s crew, and live stall challenges where you can win free meals.
+        </p>
+
+        <div class="flex flex-wrap items-center gap-3 pt-1">
+          <a href="https://instagram.com/nutrieatofficial" target="_blank" rel="noopener noreferrer" class="magnetic-btn bg-leaf text-linen font-bold text-sm px-7 py-3.5 rounded-full hover:bg-espresso shadow-md">
+            Follow @nutrieatofficial ↗
+          </a>
+          <span class="font-script text-2xl text-cocoa/80 pl-1">Discover More, Eat Better.</span>
+        </div>
+      </div>
+
+      <!-- Right: Clean Borderless Promo Video Card -->
+      <div class="lg:col-span-5 flex justify-center">
+        <div class="relative w-full max-w-[290px] sm:max-w-[310px] aspect-[9/16] rounded-[2.25rem] overflow-hidden border-2 border-cocoa/15 shadow-xl bg-linen">
+          <video
+            id="promo-video"
+            src="assets/promo_reel.mp4"
+            poster="assets/high_protein.png"
+            autoplay
+            loop
+            muted
+            playsinline
+            class="w-full h-full object-cover"
+          ></video>
+
+          <button
+            type="button"
+            onclick="togglePromoSound()"
+            id="sound-btn"
+            class="absolute bottom-8 right-4 bg-linen/90 backdrop-blur-md border border-cocoa/15 text-cocoa text-xs font-bold px-3.5 py-1.5 rounded-full shadow-sm hover:bg-sage transition-colors"
+          >
+            🔇 Sound Off
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Top 3 Reels Archive Grid -->
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-3">
+      <div>
+        <span class="text-xs font-bold uppercase tracking-widest text-leaf block mb-1">Most Viewed Reels</span>
+        <h3 class="font-display font-bold text-3xl sm:text-4xl text-cocoa">CROWD FAVORITES ON REELS</h3>
+      </div>
+      <a href="https://instagram.com/nutrieatofficial" target="_blank" rel="noopener noreferrer" class="text-sm font-bold text-leaf hover:underline">
+        See All Posts on Instagram →
+      </a>
+    </div>
+
+    <div id="posts-grid" class="grid md:grid-cols-3 gap-7"></div>
+  </section>
   <!-- STANDEE STALL CHALLENGE BANNER -->
   <section id="free-meal" class="py-12 px-6 max-w-5xl mx-auto">
     <div class="promo-card bg-kraft/65 border-2 border-cocoa/15 rounded-[2.5rem] p-8 sm:p-14 text-center relative overflow-hidden shadow-sm">
@@ -403,6 +474,77 @@
 
     updateStallStatus();
     setInterval(updateStallStatus, 60000);
+
+
+    // Top Instagram Reels Showcase
+    const TOP_POSTS = [
+      {
+        title: 'Day 1 at Tilak Nagar',
+        stat: '2,526 Likes',
+        tag: 'Launch Reel',
+        thumb: 'assets/reel3.jpeg',
+        fallback: 'assets/high_protein.png',
+        url: 'https://www.instagram.com/reel/Dfb0WMcsa02/'
+      },
+      {
+        title: 'Freshly Prepped Morning Bowls',
+        stat: 'Featured Reel',
+        tag: 'Behind The Counter',
+        thumb: 'assets/reel2.jpeg',
+        fallback: 'assets/basic_oats.png',
+        url: 'https://www.instagram.com/reel/DgEvkGNshqB/'
+      },
+      {
+        title: '"Only Buying From Vendors With No Customers"',
+        stat: '146.1K Likes 🔥',
+        tag: 'Viral Collab',
+        thumb: 'assets/reel1.jpeg',
+        fallback: 'assets/crew1.jpg',
+        url: 'https://www.instagram.com/reel/Df9u4FDswSd/'
+      }
+    ];
+
+    function renderPosts() {
+      const grid = document.getElementById('posts-grid');
+      if (!grid) return;
+      grid.innerHTML = TOP_POSTS.map((post, idx) => `
+        <a href="${post.url}" target="_blank" rel="noopener noreferrer" class="post-card group relative block aspect-[4/5] w-full rounded-[2rem] overflow-hidden border-2 ${post.tag === 'Viral Collab' ? 'border-leaf/50' : 'border-cocoa/15'} shadow-md bg-parchment">
+          <img 
+            src="${post.thumb}" 
+            onerror="this.onerror=null; this.src='${post.fallback}';"
+            alt="${post.title}" 
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-espresso/90 via-espresso/25 to-transparent"></div>
+
+          <span class="absolute top-4 left-4 bg-linen/90 backdrop-blur-md text-espresso text-xs font-bold px-3.5 py-1.5 rounded-full shadow-sm">
+            ${post.stat}
+          </span>
+
+          <div class="absolute top-4 right-4 w-10 h-10 rounded-full bg-linen text-espresso flex items-center justify-center shadow-md group-hover:scale-110 group-hover:bg-sage transition-all">
+            <span class="text-xs ml-0.5">▶</span>
+          </div>
+
+          <div class="absolute bottom-5 left-5 right-5 text-linen">
+            <span class="text-[10px] font-bold uppercase tracking-[0.18em] text-sage block mb-1">
+              0${idx + 1} / ${post.tag}
+            </span>
+            <h4 class="font-display font-bold text-2xl leading-tight group-hover:text-kraft transition-colors">
+              ${post.title}
+            </h4>
+          </div>
+        </a>
+      `).join('');
+    }
+
+    function togglePromoSound() {
+      const vid = document.getElementById('promo-video');
+      const btn = document.getElementById('sound-btn');
+      vid.muted = !vid.muted;
+      btn.textContent = vid.muted ? '🔇 Sound Off' : '🔊 Sound On';
+    }
+
+    renderPosts();
   </script>
 </body>
 </html>

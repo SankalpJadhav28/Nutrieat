@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>@nutrieatofficial — Instagram & Reels | Nutrieat</title>
+  <meta name="description" content="Watch our viral Reels, morning stall rush, and daily fitness challenges at @nutrieatofficial." />
+  <meta property="og:title" content="@nutrieatofficial — Nutrieat Social Hub" />
+  <meta property="og:description" content="Check out our most-viewed Reels, promo animations, and Tilak Nagar stall challenges." />
+  <meta property="og:image" content="assets/logo1.png" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="assets/logo1.png" type="image/png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Patrick+Hand&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            linen: '#F5F1E8',
+            parchment: '#EDE5D5',
+            kraft: '#D5BFA3',
+            sand: '#E4D5BE',
+            sage: '#C8D6BA',
+            leaf: '#3A6118',
+            cocoa: '#4D3520',
+            espresso: '#241B12',
+            promoRed: '#C8281E'
+          },
+          fontFamily: {
+            display: ['Fredoka', 'sans-serif'],
+            sans: ['Quicksand', 'sans-serif'],
+            script: ['Patrick Hand', 'cursive'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { background-color: #F5F1E8; color: #4D3520; overflow-x: hidden; }
+    .linen-texture {
+      background-image: radial-gradient(rgba(77, 53, 32, 0.045) 1px, transparent 0),
+                        radial-gradient(rgba(58, 97, 24, 0.03) 1px, #F5F1E8 0);
+      background-size: 24px 24px;
+      background-position: 0 0, 12px 12px;
+    }
+    .magnetic-btn { transition: transform 0.25s cubic-bezier(0.23, 1, 0.32, 1), background-color 0.25s ease; }
+    .post-card:hover .post-thumb { transform: scale(1.05); }
+    .post-thumb { transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1); }
+  </style>
+</head>
+<body class="font-sans linen-texture antialiased selection:bg-sage selection:text-espresso">
+
+  <!-- SHARED NAVBAR -->
+  <header class="fixed top-0 left-0 right-0 z-50 px-3 sm:px-6 py-3 sm:py-4">
+    <div class="max-w-6xl mx-auto bg-linen/90 backdrop-blur-md border border-cocoa/15 rounded-full px-3.5 sm:px-7 py-2 sm:py-2.5 flex items-center justify-between gap-2 shadow-sm">
+      <a href="index.html" class="flex items-center gap-2 sm:gap-2.5 group min-w-0">
+        <img src="assets/logo1.png" alt="Nutrieat Logo" class="h-8 sm:h-10 w-auto object-contain shrink-0 transition-transform duration-300 group-hover:rotate-6" />
+        <div class="leading-none truncate">
+          <span class="font-display font-bold text-lg sm:text-xl tracking-tight text-leaf block">Nutrieat</span>
+          <span class="hidden sm:block text-[9px] font-bold tracking-[0.18em] text-cocoa uppercase mt-0.5">Eat Good. Feel Good.</span>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-7 text-sm font-bold text-cocoa/85">
+        <a href="index.html" class="hover:text-leaf transition-colors">Home</a>
+        <a href="menu.html" class="hover:text-leaf transition-colors">Menu & Order</a>
+        <a href="story.html" class="hover:text-leaf transition-colors">Our Journey</a>
+        <a href="social.html" class="text-leaf underline decoration-2 underline-offset-4">Instagram</a>
+      </nav>
+
+      <a href="https://instagram.com/nutrieatofficial" target="_blank" class="magnetic-btn shrink-0 bg-sage text-espresso text-[10px] sm:text-xs font-bold uppercase tracking-wider px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full border border-leaf/20 hover:bg-leaf hover:text-linen">
+        <span class="sm:hidden">Follow ↗</span>
+        <span class="hidden sm:inline">@nutrieatofficial</span>
+      </a>
+    </div>
+
+    <!-- Compact Mobile Page Switcher -->
+    <nav class="md:hidden max-w-sm mx-auto mt-2 bg-linen/95 backdrop-blur-md border border-cocoa/15 rounded-full px-3 py-1.5 flex items-center justify-around text-[11px] font-bold text-cocoa shadow-sm">
+      <a href="index.html" class="hover:text-leaf px-1.5 py-0.5">Home</a>
+      <span class="text-cocoa/25">•</span>
+      <a href="menu.html" class="hover:text-leaf px-1.5 py-0.5">Menu</a>
+      <span class="text-cocoa/25">•</span>
+      <a href="story.html" class="hover:text-leaf px-1.5 py-0.5">Journey</a>
+      <span class="text-cocoa/25">•</span>
+      <a href="social.html" class="text-leaf px-1.5 py-0.5">Social</a>
+    </nav>
+  </header>
+
+  <main class="pt-36 sm:pt-32 pb-24 px-6 max-w-6xl mx-auto">
+
+    <!-- ========================================================= -->
+    <!-- INSTAGRAM PROFILE HEADER + PROMO ANIMATION SHOWCASE       -->
+    <!-- ========================================================= -->
+    <section class="grid lg:grid-cols-12 gap-10 items-center mb-24">
+      
+      <!-- Left: Instagram Bio Card -->
+      <div class="lg:col-span-7 bg-parchment/90 border-2 border-cocoa/15 rounded-[2.5rem] p-7 sm:p-10 shadow-sm space-y-6 social-hero">
+        <div class="flex items-center gap-4 sm:gap-5">
+          <!-- Gradient IG Story Ring around Logo -->
+          <div class="p-1 rounded-full bg-gradient-to-tr from-kraft via-leaf to-sage shrink-0">
+            <div class="bg-linen p-2.5 rounded-full">
+              <img src="assets/logo1.png" alt="@nutrieatofficial" class="w-16 h-16 sm:w-20 sm:h-20 object-contain" />
+            </div>
+          </div>
+
+          <div>
+            <div class="inline-flex items-center gap-1.5 bg-sage/60 px-3 py-0.5 rounded-full text-[11px] font-bold text-leaf mb-1">
+              <span>●</span> Active Daily • Mumbai
+            </div>
+            <h1 class="font-display font-bold text-2xl sm:text-4xl text-cocoa tracking-tight">@nutrieatofficial</h1>
+            <p class="text-xs sm:text-sm font-bold text-cocoa/75">Nutrieat • Eat Good. Feel Good.</p>
+          </div>
+        </div>
+
+        <!-- Bio Copy -->
+        <div class="bg-linen border border-cocoa/10 rounded-2xl p-5 space-y-1.5 text-sm font-semibold text-cocoa/90">
+          <p>🥣 Fresh Oats Bowls, PB Sandwiches & Whey Smoothies</p>
+          <p>💪 Honest Macros • Starting at ₹70</p>
+          <p>📍 Tilak Nagar, Sahyadri Ground, Opp. Bldg No. 2 (7 AM – 11 AM)</p>
+          <p class="font-script text-xl text-leaf pt-1">Discover More, Eat Better.</p>
+        </div>
+
+        <!-- Highlights / Stats Strip -->
+        <div class="grid grid-cols-3 gap-3 text-center">
+          <div class="bg-linen border border-cocoa/10 rounded-2xl py-3 px-2">
+            <div class="font-display font-bold text-lg sm:text-xl text-leaf">Daily</div>
+            <div class="text-[11px] font-bold text-cocoa/70">Stall Stories</div>
+          </div>
+          <div class="bg-linen border border-cocoa/10 rounded-2xl py-3 px-2">
+            <div class="font-display font-bold text-lg sm:text-xl text-cocoa">Challenges</div>
+            <div class="text-[11px] font-bold text-cocoa/70">Win Free Meals</div>
+          </div>
+          <div class="bg-linen border border-cocoa/10 rounded-2xl py-3 px-2">
+            <div class="font-display font-bold text-lg sm:text-xl text-leaf">20s Crew</div>
+            <div class="text-[11px] font-bold text-cocoa/70">Behind The Scenes</div>
+          </div>
+        </div>
+
+        <!-- Primary Follow CTA -->
+        <div class="flex flex-wrap gap-3 pt-1">
+          <a href="https://instagram.com/nutrieatofficial" target="_blank" class="magnetic-btn flex-1 sm:flex-none text-center bg-leaf text-linen font-bold text-sm px-8 py-4 rounded-full hover:bg-espresso shadow-md">
+            Follow @nutrieatofficial on Instagram ↗
+          </a>
+          <a href="menu.html" class="magnetic-btn flex-1 sm:flex-none text-center bg-linen border border-cocoa/20 text-cocoa font-bold text-sm px-6 py-4 rounded-full hover:bg-sage">
+            Order From Menu
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: Clean Video Showcase (No fake phone bezel or label) -->
+      <div class="lg:col-span-5 flex justify-center social-hero">
+        <div class="relative w-full max-w-[300px] sm:max-w-[320px] aspect-[9/16] rounded-[2.25rem] overflow-hidden border-2 border-cocoa/15 shadow-xl bg-linen">
+          <video
+            id="promo-video"
+            src="assets/promo_reel.mp4"
+            poster="assets/high_protein.png"
+            autoplay
+            loop
+            muted
+            playsinline
+            class="w-full h-full object-cover"
+          ></video>
+
+          <!-- Minimal Mute / Unmute Pill -->
+          <button
+            type="button"
+            onclick="togglePromoSound()"
+            id="sound-btn"
+            class="absolute bottom-4 right-4 bg-linen/90 backdrop-blur-md border border-cocoa/15 text-cocoa text-xs font-bold px-3.5 py-1.5 rounded-full shadow-sm hover:bg-sage transition-colors"
+          >
+            🔇 Sound Off
+          </button>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- MOST VIEWED POSTS & REELS GRID                            -->
+    <!-- ========================================================= -->
+    <!-- ========================================================= -->
+    <!-- MOST VIEWED POSTS & REELS (Custom Pastel Editorial Cards) -->
+    <!-- ========================================================= -->
+    <section>
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
+        <div>
+          <span class="inline-block bg-sage/60 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-widest text-leaf mb-2">
+            Viral Moments
+          </span>
+          <h2 class="font-display font-bold text-3xl sm:text-5xl text-cocoa">MOST LOVED ON INSTAGRAM</h2>
+        </div>
+        <a href="https://instagram.com/nutrieatofficial" target="_blank" rel="noopener noreferrer" class="text-sm font-bold text-leaf hover:underline">
+          View Full Profile @nutrieatofficial →
+        </a>
+      </div>
+
+      <div id="posts-grid" class="grid md:grid-cols-3 gap-7"></div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-espresso text-linen py-10 px-6">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-semibold text-linen/70">
+      <div>© 2026 NUTRIEAT • EAT GOOD. FEEL GOOD.</div>
+      <div class="flex gap-6">
+        <a href="index.html" class="hover:text-kraft">Home</a>
+        <a href="menu.html" class="hover:text-kraft">Menu & Order</a>
+        <a href="story.html" class="hover:text-kraft">Our Journey</a>
+        <a href="social.html" class="hover:text-kraft">Instagram</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const TOP_POSTS = [
+      {
+        title: 'Day 1 at Tilak Nagar',
+        caption: 'Where it all started—serving our very first fresh High Protein Oats Bowls outside Sahyadri Ground.',
+        stat: '2,526 Likes',
+        tag: 'Launch Reel',
+        thumb: 'assets/reel3.jpeg',
+        fallback: 'assets/high_protein.png',
+        url: 'https://www.instagram.com/reel/Dfb0WMcsa02/'
+      },
+      {
+        title: 'Freshly Prepped Morning Bowls',
+        caption: 'Rolled oats, crunchy almonds, banana slices, and pure honey—crafted fresh every single morning.',
+        stat: 'Featured Reel',
+        tag: 'Behind The Counter',
+        thumb: 'assets/reel2.jpeg',
+        fallback: 'assets/basic_oats.png',
+        url: 'https://www.instagram.com/reel/DgEvkGNshqB/'
+      },
+      {
+        title: '"Only Buying From Vendors With No Customers"',
+        caption: 'Viral collab with @manishdaresyou at our Tilak Nagar stall—over 146K+ likes and counting!',
+        stat: '146.1K Likes 🔥',
+        tag: 'Viral Collab',
+        thumb: 'assets/reel1.jpeg',
+        fallback: 'assets/crew1.jpg',
+        url: 'https://www.instagram.com/reel/Df9u4FDswSd/'
+      }
+    ];
+
+   function renderPosts() {
+      const grid = document.getElementById('posts-grid');
+      grid.innerHTML = TOP_POSTS.map((post, idx) => `
+        <a href="${post.url}" target="_blank" rel="noopener noreferrer" class="post-card group relative block aspect-[4/5] w-full rounded-[2rem] overflow-hidden border-2 ${post.tag === 'Viral Collab' ? 'border-leaf/50' : 'border-cocoa/15'} shadow-md bg-parchment">
+          
+          <!-- Full-Bleed Reel Cover Image -->
+          <img 
+            src="${post.thumb}" 
+            onerror="this.onerror=null; this.src='${post.fallback}';"
+            alt="${post.title}" 
+            class="post-thumb w-full h-full object-cover" 
+          />
+
+          <!-- Dark Bottom Gradient for Crisp Overlaid Text -->
+          <div class="absolute inset-0 bg-gradient-to-t from-espresso/90 via-espresso/25 to-transparent"></div>
+
+          <!-- Top-Left Likes/Stat Pill -->
+          <span class="absolute top-4 left-4 bg-linen/90 backdrop-blur-md text-espresso text-xs font-bold px-3.5 py-1.5 rounded-full shadow-sm">
+            ${post.stat}
+          </span>
+
+          <!-- Top-Right Circular Play Button (Matching your Archive style) -->
+          <div class="absolute top-4 right-4 w-10 h-10 rounded-full bg-linen text-espresso flex items-center justify-center shadow-md group-hover:scale-110 group-hover:bg-sage transition-all">
+            <span class="text-xs ml-0.5">▶</span>
+          </div>
+
+          <!-- Bottom Overlaid Title & Index Tag -->
+          <div class="absolute bottom-5 left-5 right-5 text-linen">
+            <span class="text-[10px] font-bold uppercase tracking-[0.18em] text-sage block mb-1">
+              0${idx + 1} / ${post.tag}
+            </span>
+            <h3 class="font-display font-bold text-2xl leading-tight group-hover:text-kraft transition-colors">
+              ${post.title}
+            </h3>
+          </div>
+        </a>
+      `).join('');
+    }
+    function togglePromoSound() {
+      const vid = document.getElementById('promo-video');
+      const btn = document.getElementById('sound-btn');
+      vid.muted = !vid.muted;
+      btn.textContent = vid.muted ? '🔇 Sound Off' : '🔊 Sound On';
+    }
+
+    renderPosts();
+
+    gsap.fromTo(".social-hero",
+      { y: 24, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.65, stagger: 0.15, ease: "power3.out", clearProps: "all" }
+    );
+    gsap.fromTo(".post-card",
+      { y: 28, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.55, stagger: 0.1, ease: "power3.out", clearProps: "all" }
+    );
+  </script>
+</body>
+</html>
